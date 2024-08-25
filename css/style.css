@@ -60,6 +60,21 @@ body, html {
     cursor: pointer; /* Adds a pointer cursor to indicate it's clickable */
 }
 
+.center-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the button */
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.center-btn img {
+    /* width: 40%; */
+}
+
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .navbar {
