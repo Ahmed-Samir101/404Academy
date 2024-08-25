@@ -1,0 +1,102 @@
+/* Reset margin and padding for body and html, ensure full height */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /* overflow-x: hidden; Prevent horizontal overflow */
+}
+
+/* Background image fixed to viewport */
+.background-container {
+    background-image: url('../assets/landscape.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; /* Fixes the background image to the viewport */
+    /* background-position: center; */
+    width: 100%;
+    min-height: 100vh; /* Ensures minimum height covers the viewport */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for the navbar container */
+.navbar {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* background-color: #fff; */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    z-index: 1000; /* Ensure navbar stays on top */
+}
+
+/* Style for the logo */
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Style for the navigation items */
+.nav-items {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+/* Adjust the images within the navbar */
+.nav-items img {
+    /* margin: 0 10px; */
+    height: 50px;
+    width: auto;
+}
+
+/* Style for the Log In button */
+.login-btn img {
+    height: 50px;
+    width: auto;
+    cursor: pointer; /* Adds a pointer cursor to indicate it's clickable */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: row;
+        /* align-items: flex-start; */
+        padding: 10px;
+    }
+
+    .nav-items {
+        justify-content: flex-start;
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .nav-items img {
+        /* margin: 5px; */
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    /* Floating Log In button for mobile */
+    .login-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #125ba8; /* Optional: button background color */
+        padding: 10px;
+        border-radius: 50%; /* Makes the button circular */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1001; /* Ensure it floats above other content */
+    }
+
+    .login-btn img {
+        height: 40px;  /* Adjust login button size for smaller screens */
+        width: 40px;   /* Maintain square aspect ratio */
+        content: url('../assets/login-mobile.png');
+    }
+}
