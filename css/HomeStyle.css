@@ -85,10 +85,13 @@ body, html {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+
+.center-btn img {
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.center-btn:hover {
+.center-btn img:hover {
     transform: scale(1.2);
     filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
 }
