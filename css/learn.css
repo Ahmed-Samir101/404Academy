@@ -1,0 +1,97 @@
+/* Container centered with flexbox */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.column-left, .column-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.column-left {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.column-right {
+    flex: 1;
+}
+
+/* Big Card Styling */
+.card-big {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card-big img {
+    width: 50%;
+    object-fit: cover;
+}
+
+.card-big .text-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hover Animation */
+.card-big:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Small Card Styling */
+.card-small {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* This creates a square aspect ratio */
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card-small .text-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Add this to include animations */
+@keyframes hoverAnim {
+    0% {
+        transform: scale(1) translateY(0);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1.05) translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.card-big:hover {
+    animation: hoverAnim 0.3s forwards ease-in-out;
+}
