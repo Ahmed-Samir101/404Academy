@@ -302,6 +302,13 @@ a.Next:hover {
     box-shadow: rgb(9, 103, 215) 0vw 0vw 0.938vw 0.078vw;
     margin: 1.563vw 0vw;
 	overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-preview:hover {
+    transform: scale(1.05) translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .article-preview img {
