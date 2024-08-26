@@ -46,9 +46,11 @@ window.onload = () => {
     function login(email, password) {
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const user = users.find(user => user.email === email && user.password === password);
-
+    
         if (user) {
             alert('Login successful!');
+            localStorage.setItem('loggedInUser', user.name); // Store the logged-in user's name
+            window.location.href = 'index.html'; // Redirect to the home page
         } else {
             alert('Invalid email or password.');
         }

@@ -31,8 +31,10 @@
                 </div>                
                 <div class="login-btn">
                     <a href="login.html">
-                        <img src="../assets/log-in.png" alt="Log In">
+                        <img id="loginImage" src="../assets/log-in.png" alt="Log In">
                     </a>
+                    <h2 id="userName" style="display: none;"></h2>
+                    <button id="logoutBtn" style="display: none;">Log Out</button>
                 </div>
             </div>
         </div>
@@ -59,5 +61,27 @@
         </div>
 
     </div>
+
+    <script>
+         // Script to update the login button with the logged-in user's name
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedInUser = localStorage.getItem('loggedInUser');
+            if (loggedInUser) {
+                // Hide the image and display the user's name and log out button
+                document.getElementById('loginImage').style.display = 'none';
+                const userNameElement = document.getElementById('userName');
+                userNameElement.textContent = `Welcome, ${loggedInUser}!`;
+                userNameElement.style.display = 'block';
+                document.getElementById('logoutBtn').style.display = 'block';
+            }
+
+            // Log out functionality
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('loggedInUser'); // Clear the logged-in user from local storage
+                window.location.href = 'login.html'; // Redirect to the login page
+            });
+        });
+    </script>
+
 </body>
 </html>
