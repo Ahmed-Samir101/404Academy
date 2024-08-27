@@ -72,7 +72,7 @@ const lessons = [
         type: 'lesson',
         title: 'Coming soon...',
         content: `
-        <p>Stay tuned!</p>
+        <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
         <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
         `
     },
