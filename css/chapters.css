@@ -1,0 +1,190 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #f8d9e3; /* Pink background color */
+    background-image: url('../assets/quizBG.png'); /* Add your background pattern here */
+    background-repeat: repeat;
+}
+
+.top {
+    text-align: center;
+    /* padding: 20px 0; */
+}
+
+.top-decor {
+    width: 100%;
+}
+
+h1#title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #54ceb3; /* Mint green color */
+    margin: 20px 0;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+    min-height: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 40px;
+}
+
+.btn {
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#back {
+    background-color: #ea5d64; /* Red color */
+    background-image: url('../assets/backIcon.png'); /* Add your back icon here */
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 25px 25px;
+}
+
+#next {
+    background-color: #67d0ba; /* Green color */
+    background-image: url('../assets/nextIcon.png'); /* Add your next icon here */
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 25px 25px;
+}
+
+.btn:hover {
+    background-color: #e06b70; /* Slightly lighter red for back button */
+    transform: translateY(-3px); /* Slight lift effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow on hover */
+}
+
+#next:hover {
+    background-color: #61c5a9; /* Slightly lighter green for next button */
+}
+
+/* Styling for the content container */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+    max-width: 800px;
+    min-height: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space between question and buttons */
+}
+
+/* Styling for the question */
+#question {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Grid layout for the choices */
+.choices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* Styling for each choice in the grid */
+.choice {
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for choices */
+.choice:hover {
+    background-color: #67d0ba;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Styling for the buttons container */
+.btns {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+/* Updated button styling */
+.btn {
+    border: none;
+    padding: 10px 20px; /* Smaller padding */
+    font-size: 1rem; /* Smaller font size */
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Styling for the back button */
+#back {
+    background-color: #ea5d64; /* Red color */
+    background-image: url('../assets/backIcon.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 20px 20px;
+}
+
+/* Styling for the next button */
+#next {
+    background-color: #67d0ba; /* Green color */
+    background-image: url('../assets/nextIcon.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 20px 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .choices-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding: 20px;
+        min-height: 300px;
+    }
+
+    .btns {
+        padding: 0 20px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
