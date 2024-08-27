@@ -6,10 +6,10 @@ const totalSlides = slides.length;
 const lessons = [
     {
         type: 'lesson',
-        title: 'Introduction to Web Development',
+        title: 'What is Front-End Web Development?',
         content: `
-            <p>Think of web development as the art of building your very own digital playground! It’s all about creating and maintaining websites—a bunch of connected web pages that you can explore on the internet or a private network called an intranet. Imagine a website like Wikipedia as the entire amusement park, and each page (like the one on the infamous Emu War) as a different ride or attraction. Your job in web development? Make sure everything runs smoothly, looks awesome, and keeps visitors coming back for more fun!</p>
-            <div class="img"> <img src="../assets/webdev.png" alt="Web Development"> </div>
+            <p>Front-end web development is all about crafting the part of a website that users actually see and interact with—think of it as the stylish shop window of the web! The main tools in a front-end developer’s toolkit are <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>. HTML builds the structure, CSS adds the style and flair, and JavaScript brings everything to life with interactive features. Together, they create the magic that makes websites look and feel awesome.</p>
+            <div class="img"> <img src="../assets/frontend-vs-backend.png" alt="Web Development"> </div>
         `
     },
     {
