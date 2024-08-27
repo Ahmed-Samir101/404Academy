@@ -13,48 +13,37 @@ const lessons = [
         `
     },
     {
-        type: 'question',
-        question: 'What is web development?',
-        choices: ['Creating software', 'Building websites', 'Managing databases', 'Designing logos'],
-        correctAnswer: 1
-    },
-    {
         type: 'lesson',
-        title: 'HTML Basics',
+        title: 'THE INTERNETTTT!!!!',
         content: `
-            <h2>Understanding HTML</h2>
-            <p>HTML (HyperText Markup Language) is the standard language used to create and design web pages...</p>
-            <img src="../assets/html.png" alt="HTML Basics">
+        <p>The internet isn't some magical place or secret platform—it's actually a super cool tool that links computers together. Imagine it like plugging your device into another one with a cable, but instead of a physical wire, the internet is this massive, invisible web connecting devices all over the world. Now, the intranet is like a private club for computers, where only the ones with special access get to join the network party.</p>
+        <div class="img"> <img src="../assets/internet.jpg" alt="Web Development"> </div>
         `
     },
     {
-        type: 'question',
-        question: 'What does HTML stand for?',
-        choices: ['HyperText Markup Language', 'HighText Machine Language', 'HyperLink and Text Markup Language', 'HighText Markup Language'],
-        correctAnswer: 0
-    },
-    {
         type: 'lesson',
-        title: 'CSS Styling',
+        title: 'A Blast from the Past: How the Internet Was Born',
         content: `
-            <h2>Introduction to CSS</h2>
-            <p>CSS (Cascading Style Sheets) is used to style and layout web pages, including design, colors, and fonts...</p>
-            <img src="../assets/css.png" alt="CSS Styling">
+        <p>Imagine computers in the 1960s as gigantic, pricey machines that couldn’t be moved—like having a dinosaur as a pet! To solve the problem of accessing these ancient beasts remotely and getting them to talk to each other, brilliant minds came up with <b>ARPANET</b>, the internet’s super-cool grandparent. It was the first step toward connecting computers from different locations into a magical network.<br>
+        The idea? Break down big chunks of data into tiny, bite-sized pieces called ‘packets.’ Think of it like mailing a jigsaw puzzle: you send each piece separately, and they all come together at the end to form a complete picture. By the way, that’s how websites travel across the web, too!<br><br>
+        As home computers started popping up in the 1970s and 1980s, more and more of these machines joined the digital party, laying the foundation for the internet we know and love today.</p>
+        <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
         `
     },
-    {
-        type: 'question',
-        question: 'What is CSS used for?',
-        choices: ['Styling web pages', 'Scripting web pages', 'Database management', 'Server-side processing'],
-        correctAnswer: 0
-    },
+    // {
+    //     type: 'question',
+    //     question: 'What is CSS used for?',
+    //     choices: ['Styling web pages', 'Scripting web pages', 'Database management', 'Server-side processing'],
+    //     correctAnswer: 0
+    // },
     {
         type: 'lesson',
-        title: 'JavaScript Fundamentals',
+        title: 'Clients and Servers: A Techy Restaurant Tale',
         content: `
-            <h2>Basics of JavaScript</h2>
-            <p>JavaScript is a programming language that enables interactive web pages. It is an essential part of web development...</p>
-            <img src="../assets/js.png" alt="JavaScript Fundamentals">
+        <p>In the world of technology, a client is like the hungry customer at a <i style="color:orange;">restaurant</i>, craving delicious data. When you browse the web, your computer (the client) is placing an order for some tasty information from a website.<br> Now, who takes this order? Enter the internet—the speedy waiter who zips over to the kitchen (a.k.a. the server). The server is the chef behind the scenes, cooking up exactly what you ordered—be it a webpage, a video, or some cat memes—and sends it back through the waiter (the internet) to satisfy your digital hunger.
+        <br>
+        Just like in a real restaurant, where the kitchen might be hidden away, the server computer could be located far, far away, but thanks to our trusty waiter, you get exactly what you asked for, served up fresh on your screen!</p>
+        <div class="img"> <img src="../assets/resturant.jpg" alt="Web Development"> </div>
         `
     },
     {

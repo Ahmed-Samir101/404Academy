@@ -78,13 +78,21 @@ h1#title {
     justify-content: center;
 }
 
-img {
+.img img {
     width: 35%;
     height: 25%;
 }
 
 p {
     font-size: 20px;
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 20px;
+    width: 25vh;
+    height: 25vh;
 }
 
 #next:hover {
