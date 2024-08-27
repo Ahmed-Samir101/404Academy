@@ -8,7 +8,7 @@ const lessons = [
         type: 'lesson',
         title: 'Introduction to Web Development',
         content: `
-            <p>Think of web development as the art of building your very own digital playground! It’s all about creating and maintaining websites—a bunch of connected web pages that you can explore on the internet or a private network called an intranet. Imagine a website like Wikipedia as the entire amusement park, and each page (like the one on the infamous Emu War) as a different ride or attraction. Your job in web development? Make sure everything runs smoothly, looks awesome, and keeps visitors coming back for more fun!</p>
+            <p>Think of <b style="color:red;">web development</b> as the art of building your very own digital playground! It’s all about creating and maintaining websites—a bunch of connected web pages that you can explore on the internet or a private network called an intranet. Imagine a website like Wikipedia as the entire amusement park, and each page (like the one on the infamous <a href="https://en.wikipedia.org/wiki/Emu_War">Emu War</a>) as a different ride or attraction. Your job in web development? Make sure everything runs smoothly, looks awesome, and keeps visitors coming back for more fun!</p>
             <div class="img"> <img src="../assets/webdev.png" alt="Web Development"> </div>
         `
     },
@@ -25,7 +25,15 @@ const lessons = [
         title: 'A Blast from the Past: How the Internet Was Born',
         content: `
         <p>Imagine computers in the 1960s as gigantic, pricey machines that couldn’t be moved—like having a dinosaur as a pet! To solve the problem of accessing these ancient beasts remotely and getting them to talk to each other, brilliant minds came up with <b>ARPANET</b>, the internet’s super-cool grandparent. It was the first step toward connecting computers from different locations into a magical network.<br>
-        The idea? Break down big chunks of data into tiny, bite-sized pieces called ‘packets.’ Think of it like mailing a jigsaw puzzle: you send each piece separately, and they all come together at the end to form a complete picture. By the way, that’s how websites travel across the web, too!<br><br>
+        </p>
+        <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
+        `
+    },
+    {
+        type: 'lesson',
+        title: 'A Blast from the Past: How the Internet Was Born',
+        content: `
+        <p>The idea? Break down big chunks of data into tiny, bite-sized pieces called <b style="color:orange;">‘packets.’</b> Think of it like mailing a jigsaw puzzle: you send each piece separately, and they all come together at the end to form a complete picture. By the way, that’s how websites travel across the web, too!<br><br>
         As home computers started popping up in the 1970s and 1980s, more and more of these machines joined the digital party, laying the foundation for the internet we know and love today.</p>
         <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
         `
