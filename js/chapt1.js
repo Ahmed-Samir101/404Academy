@@ -38,12 +38,12 @@ const lessons = [
         <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
         `
     },
-    // {
-    //     type: 'question',
-    //     question: 'What is CSS used for?',
-    //     choices: ['Styling web pages', 'Scripting web pages', 'Database management', 'Server-side processing'],
-    //     correctAnswer: 0
-    // },
+    {
+        type: 'question',
+        question: 'What was ARPANET?',
+        choices: ['A dinosaur communication system', 'A home computer', 'The first computer network', 'A jigsaw puzzle method'],
+        correctAnswer: 2
+    },
     {
         type: 'lesson',
         title: 'Clients and Servers: A Techy Restaurant Tale',
@@ -54,12 +54,12 @@ const lessons = [
         <div class="img"> <img src="../assets/resturant.jpg" alt="Web Development"> </div>
         `
     },
-    // {
-    //     type: 'question',
-    //     question: 'What is JavaScript primarily used for?',
-    //     choices: ['Creating interactive effects', 'Styling web pages', 'Structuring web pages', 'Managing databases'],
-    //     correctAnswer: 0
-    // },
+    {
+        type: 'question',
+        question: 'In the analogy of browsing the web, what role does the server play?',
+        choices: ['The customer', 'The waiter', 'The menu', 'The chef'],
+        correctAnswer: 3
+    },
     {
         type: 'lesson',
         title: 'What is a Web Browser?',
@@ -70,12 +70,12 @@ const lessons = [
         <div class="img"> <img src="../assets/iememe.webp" alt="Web Development"> </div>
         `
     },
-    // {
-    //     type: 'question',
-    //     question: 'What does responsive design achieve?',
-    //     choices: ['Adaptation to different screen sizes', 'Static layout on all devices', 'High resolution images only', 'Server-side scripting'],
-    //     correctAnswer: 0
-    // },
+    {
+        type: 'question',
+        question: 'What is the main function of a web browser?',
+        choices: ['To create HTML files', 'To guide users through the internet', 'To connect computers to the internet', 'To store website data'],
+        correctAnswer: 1
+    },
     {
         type: 'lesson',
         title: 'Coming soon...',
@@ -146,11 +146,46 @@ function loadContent() {
                 ${choicesHTML}
             </div>
         `;
+
+        // Add event listeners to choices
+        const choices = contentDiv.querySelectorAll('.choice');
+        choices.forEach(choice => {
+            choice.addEventListener('click', function() {
+                const selectedIndex = parseInt(this.getAttribute('data-index'));
+                verifyAnswer(selectedIndex, currentItem.correctAnswer);
+            });
+        });
     }
 
     updateNavigation();
     updateSlides();
 }
+
+function verifyAnswer(selectedIndex, correctIndex) {
+    const choices = document.querySelectorAll('.choice');
+    const correctImage = document.getElementById('correct-image');
+    const incorrectImage = document.getElementById('incorrect-image');
+
+    if (selectedIndex === correctIndex) {
+        choices[selectedIndex].style.backgroundColor = '#67d0ba'; // Green for correct
+        showPopupImage(correctImage);
+    } else {
+        choices[selectedIndex].style.backgroundColor = '#ea5d64'; // Red for incorrect
+        showPopupImage(incorrectImage);
+    }
+}
+
+function showPopupImage(imageElement) {
+    imageElement.classList.add('show');
+
+    // Hide the image after 2 seconds
+    setTimeout(() => {
+        imageElement.classList.remove('show');
+    }, 2000);
+}
+
+// Load the initial content and slides
+loadContent();
 
 function navigateSlides(step) {
     currentIndex += step;
