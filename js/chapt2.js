@@ -285,17 +285,18 @@ function loadContent() {
         `;
 
         setupDotConnection();
+        document.getElementById('next').disabled = false;
     }
 
     document.getElementById('resetButton').addEventListener('click', function() {
-        console.log('Reset button clicked');
-        resetConnections();
-    });
-    
-    document.getElementById('verifyButton').addEventListener('click', function() {
-        console.log('Verify button clicked');
-        verifyConnections();
-    });
+    console.log('Reset button clicked');
+    resetConnections();
+});
+
+document.getElementById('verifyButton').addEventListener('click', function() {
+    console.log('Verify button clicked');
+    verifyConnections();
+});
 
     updateNavigation();
     updateSlides();
@@ -304,6 +305,7 @@ function loadContent() {
 
 let selectedLeft = null;
 let connections = [];
+let correctAnswerSelected = false;
 
 // Initialize the dot connection setup
 function setupDotConnection() {
@@ -376,24 +378,21 @@ function resetConnections() {
 }
 
 // Verify if the connections are correct
-function verifyConnections() {
-    console.log('Verifying connections...');
-    const leftItems = document.querySelectorAll('.left-column .dot-item');
-    const rightItems = document.querySelectorAll('.right-column .dot-item');
-    
-    connections.forEach(connection => {
-        const isCorrect = connection.leftIndex === connection.rightIndex;
-        const leftItem = leftItems[connection.leftIndex];
-        const rightItem = rightItems[connection.rightIndex];
+function verifyAnswer(selectedIndex, correctIndex) {
+    const choices = document.querySelectorAll('.choice');
+    const correctImage = document.getElementById('correct-image');
+    const incorrectImage = document.getElementById('incorrect-image');
 
-        if (isCorrect) {
-            leftItem.classList.add('correct');
-            rightItem.classList.add('correct');
-        } else {
-            leftItem.classList.add('incorrect');
-            rightItem.classList.add('incorrect');
-        }
-    });
+    if (selectedIndex === correctIndex) {
+        choices[selectedIndex].style.backgroundColor = '#67d0ba';
+        showPopupImage(correctImage);
+        correctAnswerSelected = true;
+        document.getElementById('next').disabled = false; // Enable the Next button
+    } else {
+        choices[selectedIndex].style.backgroundColor = '#ea5d64';
+        showPopupImage(incorrectImage);
+        correctAnswerSelected = false;
+    }
 }
 
 // document.getElementById('resetButton').addEventListener('click', resetConnections);
@@ -405,7 +404,7 @@ setupDotConnection();
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
-    document.getElementById('next').disabled = currentIndex === lessons.length - 1;
+    document.getElementById('next').disabled = !correctAnswerSelected && lessons[currentIndex].type === 'question';
     updateProgressBar(); // Update the progress bar when navigation buttons are updated
 }
 
@@ -423,21 +422,8 @@ function navigateSlides(step) {
     } else if (currentIndex >= lessons.length) {
         currentIndex = lessons.length - 1;
     }
+    correctAnswerSelected = false; // Reset for the next question
     loadContent();
-}
-
-function verifyAnswer(selectedIndex, correctIndex) {
-    const choices = document.querySelectorAll('.choice');
-    const correctImage = document.getElementById('correct-image');
-    const incorrectImage = document.getElementById('incorrect-image');
-
-    if (selectedIndex === correctIndex) {
-        choices[selectedIndex].style.backgroundColor = '#67d0ba';
-        showPopupImage(correctImage);
-    } else {
-        choices[selectedIndex].style.backgroundColor = '#ea5d64';
-        showPopupImage(incorrectImage);
-    }
 }
 
 function showPopupImage(imageElement) {
@@ -449,16 +435,6 @@ function showPopupImage(imageElement) {
 }
 
 loadContent();
-
-function navigateSlides(step) {
-    currentIndex += step;
-    if (currentIndex < 0) {
-        currentIndex = lessons.length - 1;
-    } else if (currentIndex >= lessons.length) {
-        currentIndex = 0;
-    }
-    loadContent();
-}
 
 document.getElementById('next').addEventListener('click', () => {
     navigateSlides(1);

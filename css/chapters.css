@@ -309,6 +309,11 @@ li {
     cursor: not-allowed;
 }
 
+#next:disabled {
+    background-color: #cccccc; /* Light gray */
+    color: #666666; /* Darker gray text */
+    cursor: not-allowed;
+}
 
 @media (max-width: 768px) {
     .content {
