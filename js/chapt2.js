@@ -94,19 +94,24 @@ const lessons = [
                         <br>
                         <span class="angle-brackets">&lt;</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>
                     </p>
-                    <h3 class="comment">// Result:</h3><h1 class="comment">// Hello World!</h1><h3 class="comment">// Hello World!</h3><h6 class="comment">// Hello World!</h6>
                 </div>
-                <br>
                 <li>Paragraph (&ltp&gt): Used for blocks of text</li>
                 <div class="code">
                     <p>
                         <span class="angle-brackets">&lt;</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>I love web development!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
                     </p>
-                    <h3 class="comment">// Result:</h3><p class="comment">// I love web development!</p>
+                </div>
+                <li>Links (&lta&gt): Create clickable links</li>
+                <div class="code">
+                    <p>
+                    <span class="angle-brackets">&lt;</span><span class="tag">a</span>
+                    <span class="attribute">href</span>=<span class="string">"index.html"</span>
+                    <span class="angle-brackets">&gt;</span>Click me!<span class="angle-brackets">&lt;/</span><span class="tag">a</span><span class="angle-brackets">&gt;</span>
+                    </p>
                 </div>
             </ul>
         </p>
-        <div class="img"> <img src="../assets/iememe.webp" alt="Web Development"> </div>
+        <div class="codeimg"> <img src="../assets/code1.png" alt="Web Development"> </div>
         `
     },
     // {
@@ -115,6 +120,62 @@ const lessons = [
     //     choices: ['Adaptation to different screen sizes', 'Static layout on all devices', 'High resolution images only', 'Server-side scripting'],
     //     correctAnswer: 0
     // },
+    {
+        type: 'lesson',
+        title: 'Building a Simple Webpage',
+        content: `
+        <p>Now lets combine what we have learned so far to create your first webpage!
+            <ul>
+                <li>Use the tags you’ve learned (&lth1&gt, &ltp&gt, &lta&gt) to structure your content.</li>
+                <div class="code">
+                    <p>
+                        <span class="angle-brackets">&lt;</span><span class="tag">!DOCTYPE html</span><span class="angle-brackets">&gt;</span>
+                        <br>
+                        <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;
+                        <br>&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">body</span><span class="angle-brackets">&gt;
+                        <br>&nbsp;&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
+                        <br>&nbsp;&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>I am learning web development, yay!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
+                        <br>&nbsp;&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">a</span>
+                        <span class="attribute">href</span>=<span class="string">"index.html"</span>
+                        <span class="angle-brackets">&gt;</span>Click me!<span class="angle-brackets">&lt;/</span><span class="tag">a</span><span class="angle-brackets">&gt;</span>
+                        <br>&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">/body</span><span class="angle-brackets">&gt;
+                        <br>
+                        <span class="angle-brackets">&lt;</span><span class="tag">/html</span><span class="angle-brackets">&gt;
+
+                    </p>
+                </div>
+            </ul>
+        </p>
+        <div class="codeimg"> <img src="../assets/code2.png" alt="Web Development"> </div>
+        `
+    },
+    {
+        type: 'lesson',
+        title: 'Working with Images in HTML',
+        content: `
+        <p>Now lets learn how to add images to your webpage!
+            <ul>
+                <li>You can use the &ltimg&gt tag to insert images into your webpage.</li>
+                <li>The &ltimg&gt tag is self-closing, which means it doesn’t need a separate closing tag.</li>
+                <li>You need to use the src attribute to specify the path to the image file and the alt attribute for alternative text.</li>
+                <div class="code">
+                    <p>
+                        <span class="angle-brackets">&lt;</span><span class="tag">img</span>
+                        <span class="attribute">src</span>=<span class="string">"path/to/your/image.jpg"</span>
+                        <span class="attribute">alt</span>=<span class="string">"funny cat meme"</span>
+                        <span class="angle-brackets">&gt;</span>
+                    </p>
+                </div>
+            </ul>
+        </p>
+        <div class="codeimg"> <img src="../assets/code.png" alt="Web Development"> </div>
+        `
+    },
     {
         type: 'lesson',
         title: 'Coming soon...',
@@ -128,15 +189,6 @@ const lessons = [
     //     question: 'What is the DOM used for?',
     //     choices: ['Manipulating HTML and CSS', 'Creating images', 'Server-side scripting', 'Database queries'],
     //     correctAnswer: 0
-    // },
-    // {
-    //     type: 'lesson',
-    //     title: 'Web Performance Optimization',
-    //     content: `
-    //         <h2>Improving Web Performance</h2>
-    //         <p>Optimizing web performance involves techniques to make web pages load faster and provide a better user experience...</p>
-    //         <img src="../assets/performance.png" alt="Web Performance Optimization">
-    //     `
     // },
     // {
     //     type: 'question',
