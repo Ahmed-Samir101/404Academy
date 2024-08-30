@@ -14,54 +14,101 @@ const lessons = [
     },
     {
         type: 'lesson',
-        title: 'Yo, what about the backend?',
+        title: 'The Foundation of Frontend – HTML',
         content: `
-        <p>Back-end web development is like the backstage crew at a big concert—working behind the scenes to make sure everything runs smoothly. This part of the website, hidden from users, includes servers, databases, and all the technical stuff that keeps the show going. Back-end developers are the wizards making sure your website is always up, running, and accessible on the internet, even if you never see their work directly.</p>
-        <div class="img"> <img src="../assets/backendMeme.jpg" alt="meme"> </div>
+        <p>HTML (HyperText Markup Language) is the backbone of any website. It structures the content by defining elements like headings, paragraphs, images, and links. Think of it as the skeleton of a webpage—without it, there would be no content for users to see.</p>
+        <div class="code">
+            <p>
+                <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span>
+            </p>
+            <p>  <span class="comment">&lt;!-- This is a comment --&gt;</span></p>
+            <p>
+                <span class="angle-brackets">&lt;</span><span class="tag">h1</span>
+                <span class="attribute">style</span>=<span class="string">"color: red;"</span>
+                <span class="angle-brackets">&gt;</span>Hello World<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
+            </p>
+            <p><span class="angle-brackets">&lt;/</span><span class="tag">html</span><span class="angle-brackets">&gt;</span></p>
+        </div>
+    </div>
         `
     },
-    // {
-    //     type: 'lesson',
-    //     title: 'A Blast from the Past: How the Internet Was Born',
-    //     content: `
-    //     <p>Imagine computers in the 1960s as gigantic, pricey machines that couldn’t be moved—like having a dinosaur as a pet! To solve the problem of accessing these ancient beasts remotely and getting them to talk to each other, brilliant minds came up with <b>ARPANET</b>, the internet’s super-cool grandparent. It was the first step toward connecting computers from different locations into a magical network.<br>
-    //     The idea? Break down big chunks of data into tiny, bite-sized pieces called ‘packets.’ Think of it like mailing a jigsaw puzzle: you send each piece separately, and they all come together at the end to form a complete picture. By the way, that’s how websites travel across the web, too!<br><br>
-    //     As home computers started popping up in the 1970s and 1980s, more and more of these machines joined the digital party, laying the foundation for the internet we know and love today.</p>
-    //     <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
-    //     `
-    // },
+    {
+        type: 'lesson',
+        title: 'Adding Style and Interactivity – CSS & JavaScriptL',
+        content: `
+        <p><b style="color:blue;">CSS</b> (Cascading Style Sheets) is what makes your website look good. It controls the appearance of HTML elements, allowing you to add colors, adjust layouts, and create a visually appealing site.
+        <br>
+        <b style="color:#cfb80e;">JavaScript</b> adds interactivity. It’s a programming language that makes your website dynamic, enabling features like interactive forms, animations, and more. It’s what turns a static webpage into something users can engage with.
+        </p>
+        <div class="img"> <img src="../assets/hcj.png" alt="meme"> </div>
+        `
+    },
     // {
     //     type: 'question',
     //     question: 'What is CSS used for?',
     //     choices: ['Styling web pages', 'Scripting web pages', 'Database management', 'Server-side processing'],
     //     correctAnswer: 0
     // },
-    // {
-    //     type: 'lesson',
-    //     title: 'Clients and Servers: A Techy Restaurant Tale',
-    //     content: `
-    //     <p>In the world of technology, a client is like the hungry customer at a <i style="color:orange;">restaurant</i>, craving delicious data. When you browse the web, your computer (the client) is placing an order for some tasty information from a website.<br> Now, who takes this order? Enter the internet—the speedy waiter who zips over to the kitchen (a.k.a. the server). The server is the chef behind the scenes, cooking up exactly what you ordered—be it a webpage, a video, or some cat memes—and sends it back through the waiter (the internet) to satisfy your digital hunger.
-    //     <br>
-    //     Just like in a real restaurant, where the kitchen might be hidden away, the server computer could be located far, far away, but thanks to our trusty waiter, you get exactly what you asked for, served up fresh on your screen!</p>
-    //     <div class="img"> <img src="../assets/resturant.jpg" alt="Web Development"> </div>
-    //     `
-    // },
+    {
+        type: 'lesson',
+        title: 'The Basic Structure of an HTML Document',
+        content: `
+        <p>Objective: Learn the basic structure of an HTML document.
+        Content:
+        An HTML document typically starts with a <b style="color:orange;">&lt!DOCTYPE html&gt</b>; declaration.
+        It is followed by <b style="color:orange;">&lthtml&gt;</b>, <b style="color:orange;">&lthead&gt</b>, and <b style="color:orange;">&ltbody&gt</b> tags.
+        </p>
+        <div class="code">
+            <p>
+                <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span>
+            </p>
+            <p>  <span class="comment">&lt;!-- This is a comment --&gt;</span></p>
+            <p>
+                <span class="angle-brackets">&lt;</span><span class="tag">h1</span>
+                <span class="attribute">style</span>=<span class="string">"color: red;"</span>
+                <span class="angle-brackets">&gt;</span>Hello World<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
+            </p>
+            <p><span class="angle-brackets">&lt;/</span><span class="tag">html</span><span class="angle-brackets">&gt;</span></p>
+        </div>
+        `
+    },
     // {
     //     type: 'question',
     //     question: 'What is JavaScript primarily used for?',
     //     choices: ['Creating interactive effects', 'Styling web pages', 'Structuring web pages', 'Managing databases'],
     //     correctAnswer: 0
     // },
-    // {
-    //     type: 'lesson',
-    //     title: 'What is a Web Browser?',
-    //     content: `
-    //     <p>Think of a web browser as your trusty guide to the wild, wild web! It’s a piece of software that helps you explore the vast internet landscape with ease. Sure, you could technically access the internet without one, but why take the long way when you can have a browser lead the way, pointing out all the cool stuff?
-    //     <br><br>
-    //     A web browser takes the raw ingredients of a website—like HTML files—and cooks them up into a beautifully presented page, ready for you to enjoy. There are lots of different web browsers out there, so it’s important to make sure your website looks great no matter which one your visitors are using.</p>
-    //     <div class="img"> <img src="../assets/iememe.webp" alt="Web Development"> </div>
-    //     `
-    // },
+    {
+        type: 'lesson',
+        title: 'Basic HTML Tags',
+        content: `
+        <p>•HTML uses tags to define elements on a webpage. Most tags come in pairs: an opening tag &lttag&gt and a closing tag &lt/tag&gt.
+        Common Tags:
+            <ul>
+                <li>&lth1&gt to &lth6&gt: Heading tags. &lth1&gt is the largest heading, &lth6&gt is the smallest.</li>
+                <div class="code">
+                    <p>
+                        <span class="angle-brackets">&lt;</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
+                        <br>
+                        <span class="angle-brackets">&lt;</span><span class="tag">h3</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h3</span><span class="angle-brackets">&gt;</span>
+                        <br>
+                        <span class="angle-brackets">&lt;</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>
+                    </p>
+                    <h3 class="comment">// Result:</h3><h1 class="comment">// Hello World!</h1><h3 class="comment">// Hello World!</h3><h6 class="comment">// Hello World!</h6>
+                </div>
+                <br>
+                <li>Paragraph (&ltp&gt): Used for blocks of text</li>
+                <div class="code">
+                    <p>
+                        <span class="angle-brackets">&lt;</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>I love web development!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
+                    </p>
+                    <h3 class="comment">// Result:</h3><p class="comment">// I love web development!</p>
+                </div>
+            </ul>
+        </p>
+        <div class="img"> <img src="../assets/iememe.webp" alt="Web Development"> </div>
+        `
+    },
     // {
     //     type: 'question',
     //     question: 'What does responsive design achieve?',
