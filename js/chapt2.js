@@ -13,6 +13,12 @@ const lessons = [
         `
     },
     {
+        type: 'question',
+        question: '1) Which one make the webpage interactive?',
+        choices: ['HTML', 'CSS', 'JavaScript', 'Python'],
+        correctAnswer: 2
+    },
+    {
         type: 'lesson',
         title: 'The Foundation of Frontend – HTML',
         content: `
@@ -33,6 +39,12 @@ const lessons = [
         `
     },
     {
+        type: 'question',
+        question: '2) What is the primary role of HTML in web development?',
+        choices: ['Interactivity', 'Structure', 'Styling', 'Data storage'],
+        correctAnswer: 1
+    },
+    {
         type: 'lesson',
         title: 'Adding Style and Interactivity – CSS & JavaScriptL',
         content: `
@@ -43,12 +55,12 @@ const lessons = [
         <div class="img"> <img src="../assets/hcj.png" alt="meme"> </div>
         `
     },
-    // {
-    //     type: 'question',
-    //     question: 'What is CSS used for?',
-    //     choices: ['Styling web pages', 'Scripting web pages', 'Database management', 'Server-side processing'],
-    //     correctAnswer: 0
-    // },
+    {
+        type: 'question',
+        question: '3) What is the primary function of JavaScript in web development?',
+        choices: ['Data Storage', 'Structure', 'Styling', 'Interactivity'],
+        correctAnswer: 3
+    },
     {
         type: 'lesson',
         title: 'The Basic Structure of an HTML Document',
@@ -114,12 +126,12 @@ const lessons = [
         <div class="codeimg"> <img src="../assets/code1.png" alt="Web Development"> </div>
         `
     },
-    // {
-    //     type: 'question',
-    //     question: 'What does responsive design achieve?',
-    //     choices: ['Adaptation to different screen sizes', 'Static layout on all devices', 'High resolution images only', 'Server-side scripting'],
-    //     correctAnswer: 0
-    // },
+    {
+        type: 'question',
+        question: '4) Which tag is used to create a link?',
+        choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
+        correctAnswer: 3
+    },
     {
         type: 'lesson',
         title: 'Building a Simple Webpage',
@@ -176,27 +188,28 @@ const lessons = [
         <div class="codeimg"> <img src="../assets/code3.png" alt="Web Development"> </div>
         `
     },
-    {
-        type: 'lesson',
-        title: 'Coming soon...',
-        content: `
-        <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
-        <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
-        `
-    },
     // {
-    //     type: 'question',
-    //     question: 'What is the DOM used for?',
-    //     choices: ['Manipulating HTML and CSS', 'Creating images', 'Server-side scripting', 'Database queries'],
-    //     correctAnswer: 0
+    //     type: 'lesson',
+    //     title: 'Coming soon...',
+    //     content: `
+    //     <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
+    //     <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
+    //     `
     // },
-    // {
-    //     type: 'question',
-    //     question: 'What is a common technique for optimizing web performance?',
-    //     choices: ['Minification of files', 'Increasing image resolution', 'Using more plugins', 'Adding more content'],
-    //     correctAnswer: 0
-    // }
+    {
+        type: 'connect-the-dots',
+        question: 'Match the HTML tags with their functions.',
+        pairs: [
+            { left: '&lt;h1&gt;', right: 'Defines the largest heading' },
+            { left: '&lt;p&gt;', right: 'Defines a paragraph' },
+            { left: '&lt;a&gt;', right: 'Creates a hyperlink' },
+            { left: '&lt;img&gt;', right: 'Inserts an image' }
+        ],
+        correctPairs: [0, 1, 2, 3]
+    }
 ];
+
+
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
@@ -213,6 +226,7 @@ function updateSlides() {
     });
 }
 
+
 function loadContent() {
     const contentDiv = document.querySelector('.content');
     contentDiv.innerHTML = '';
@@ -233,37 +247,161 @@ function loadContent() {
 
         contentDiv.innerHTML = `
             <p id="question">${currentItem.question}</p>
+            <div class="img">
+            <img style="marign-bottom: 25px;" src="../assets/spongebob-thinking.gif">
+            </div>
             <div class="choices-grid">
                 ${choicesHTML}
             </div>
         `;
+
+        const choices = contentDiv.querySelectorAll('.choice');
+        choices.forEach(choice => {
+            choice.addEventListener('click', function() {
+                const selectedIndex = parseInt(this.getAttribute('data-index'));
+                verifyAnswer(selectedIndex, currentItem.correctAnswer);
+            });
+        });
+    } else if (currentItem.type === 'connect-the-dots') {
+        const pairsHTML = `
+            <div class="connect-the-dots">
+                <div class="left-column">
+                    ${currentItem.pairs.map(pair => `<div class="dot-item">${pair.left}</div>`).join('')}
+                </div>
+                <div class="right-column">
+                    ${currentItem.pairs.map(pair => `<div class="dot-item">${pair.right}</div>`).join('')}
+                </div>
+            </div>
+        `;
+
+        contentDiv.innerHTML = `
+            <h2>${currentItem.question}</h2>
+            <svg class="connection-lines" xmlns="http://www.w3.org/2000/svg"></svg>
+            ${pairsHTML}
+            <div class="controls">
+                <button id="resetButton">Reset</button>
+                <button id="verifyButton">Verify</button>
+            </div>
+        `;
+
+        setupDotConnection();
     }
+
+    document.getElementById('resetButton').addEventListener('click', function() {
+        console.log('Reset button clicked');
+        resetConnections();
+    });
+    
+    document.getElementById('verifyButton').addEventListener('click', function() {
+        console.log('Verify button clicked');
+        verifyConnections();
+    });
 
     updateNavigation();
     updateSlides();
 }
 
-function navigateSlides(step) {
-    currentIndex += step;
-    if (currentIndex < 0) {
-        currentIndex = lessons.length - 1; // Loop back to the end
-    } else if (currentIndex >= lessons.length) {
-        currentIndex = 0; // Loop back to the start
-    }
-    loadContent();
+
+let selectedLeft = null;
+let connections = [];
+
+// Initialize the dot connection setup
+function setupDotConnection() {
+    const leftItems = document.querySelectorAll('.left-column .dot-item');
+    const rightItems = document.querySelectorAll('.right-column .dot-item');
+
+    leftItems.forEach((item, leftIndex) => {
+        item.addEventListener('click', () => {
+            selectedLeft = leftIndex;
+            clearSelections(leftItems);
+            item.classList.add('selected');
+        });
+    });
+
+    rightItems.forEach((item, rightIndex) => {
+        item.addEventListener('click', () => {
+            if (selectedLeft !== null) {
+                const connection = {
+                    leftIndex: selectedLeft,
+                    rightIndex: rightIndex
+                };
+                connections.push(connection);
+
+                drawConnection(leftItems[selectedLeft], item, '#007bff');
+                selectedLeft = null;
+                clearSelections(leftItems);
+            }
+        });
+    });
 }
 
-// Event listeners for navigation buttons
-document.getElementById('next').addEventListener('click', () => {
-    navigateSlides(1);
-});
+// Clear selection state from the items
+function clearSelections(items) {
+    items.forEach(item => item.classList.remove('selected'));
+}
 
-document.getElementById('back').addEventListener('click', () => {
-    navigateSlides(-1);
-});
+// Draw a line between two items
+function drawConnection(leftItem, rightItem, color) {
+    const svg = document.querySelector('.connection-lines');
+    const leftRect = leftItem.getBoundingClientRect();
+    const rightRect = rightItem.getBoundingClientRect();
 
-// Load the initial content and slides
-loadContent();
+    const startX = leftRect.right + window.scrollX;
+    const startY = leftRect.top + leftRect.height / 2 + window.scrollY;
+    const endX = rightRect.left + window.scrollX;
+    const endY = rightRect.top + rightRect.height / 2 + window.scrollY;
+
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", startX);
+    line.setAttribute("y1", startY);
+    line.setAttribute("x2", endX);
+    line.setAttribute("y2", endY);
+    line.setAttribute("stroke", color);
+    line.setAttribute("stroke-width", "2");
+
+    svg.appendChild(line);
+}
+
+// Reset all connections and clear the SVG
+function resetConnections() {
+    console.log('Resetting connections...');
+    connections = [];
+    const svg = document.querySelector('.connection-lines');
+    svg.innerHTML = '';  // Clear all drawn lines
+    const dotItems = document.querySelectorAll('.dot-item');
+    dotItems.forEach(item => {
+        item.classList.remove('correct', 'incorrect');
+        item.style.pointerEvents = ''; // Re-enable pointer events
+    });
+}
+
+// Verify if the connections are correct
+function verifyConnections() {
+    console.log('Verifying connections...');
+    const leftItems = document.querySelectorAll('.left-column .dot-item');
+    const rightItems = document.querySelectorAll('.right-column .dot-item');
+    
+    connections.forEach(connection => {
+        const isCorrect = connection.leftIndex === connection.rightIndex;
+        const leftItem = leftItems[connection.leftIndex];
+        const rightItem = rightItems[connection.rightIndex];
+
+        if (isCorrect) {
+            leftItem.classList.add('correct');
+            rightItem.classList.add('correct');
+        } else {
+            leftItem.classList.add('incorrect');
+            rightItem.classList.add('incorrect');
+        }
+    });
+}
+
+// document.getElementById('resetButton').addEventListener('click', resetConnections);
+// document.getElementById('verifyButton').addEventListener('click', verifyConnections);
+
+// Initialize the game
+setupDotConnection();
+
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
@@ -277,56 +415,51 @@ function updateProgressBar() {
     progress.style.width = `${progressPercentage}%`;
 }
 
-function loadContent() {
-    const contentDiv = document.querySelector('.content');
-    contentDiv.innerHTML = '';
-
-    const currentItem = lessons[currentIndex];
-
-    if (currentItem.type === 'lesson') {
-        contentDiv.innerHTML = `
-            <h2>${currentItem.title}</h2>
-            <div class="lesson-content">
-                ${currentItem.content}
-            </div>
-        `;
-    } else if (currentItem.type === 'question') {
-        const choicesHTML = currentItem.choices.map((choice, i) => `
-            <div class="choice" data-index="${i}">${choice}</div>
-        `).join('');
-
-        contentDiv.innerHTML = `
-            <p id="question">${currentItem.question}</p>
-            <div class="choices-grid">
-                ${choicesHTML}
-            </div>
-        `;
-
-        // Add event listeners to choices
-        const choices = contentDiv.querySelectorAll('.choice');
-        choices.forEach(choice => {
-            choice.addEventListener('click', function() {
-                const selectedIndex = parseInt(this.getAttribute('data-index'));
-                verifyAnswer(selectedIndex, currentItem.correctAnswer);
-            });
-        });
-    }
-
-    updateNavigation();
-    updateSlides();
-}
 
 function navigateSlides(step) {
     currentIndex += step;
     if (currentIndex < 0) {
-        currentIndex = 0; // Prevent going back past the first element
+        currentIndex = 0;
     } else if (currentIndex >= lessons.length) {
-        currentIndex = lessons.length - 1; // Prevent going past the last element
+        currentIndex = lessons.length - 1;
     }
     loadContent();
 }
 
-// Event listeners for navigation buttons
+function verifyAnswer(selectedIndex, correctIndex) {
+    const choices = document.querySelectorAll('.choice');
+    const correctImage = document.getElementById('correct-image');
+    const incorrectImage = document.getElementById('incorrect-image');
+
+    if (selectedIndex === correctIndex) {
+        choices[selectedIndex].style.backgroundColor = '#67d0ba';
+        showPopupImage(correctImage);
+    } else {
+        choices[selectedIndex].style.backgroundColor = '#ea5d64';
+        showPopupImage(incorrectImage);
+    }
+}
+
+function showPopupImage(imageElement) {
+    imageElement.classList.add('show');
+
+    setTimeout(() => {
+        imageElement.classList.remove('show');
+    }, 2000);
+}
+
+loadContent();
+
+function navigateSlides(step) {
+    currentIndex += step;
+    if (currentIndex < 0) {
+        currentIndex = lessons.length - 1;
+    } else if (currentIndex >= lessons.length) {
+        currentIndex = 0;
+    }
+    loadContent();
+}
+
 document.getElementById('next').addEventListener('click', () => {
     navigateSlides(1);
 });
@@ -335,6 +468,5 @@ document.getElementById('back').addEventListener('click', () => {
     navigateSlides(-1);
 });
 
-// Load the initial content and progress bar
 loadContent();
-updateProgressBar(); // Initialize the progress bar on page load
+
