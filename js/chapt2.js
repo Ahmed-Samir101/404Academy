@@ -226,6 +226,26 @@ function updateSlides() {
     });
 }
 
+function verifyConnections() {
+    console.log('Verify button clicked'); // Debug log
+    const leftItems = document.querySelectorAll('.left-column .dot-item');
+    const rightItems = document.querySelectorAll('.right-column .dot-item');
+    
+    connections.forEach(connection => {
+        const isCorrect = connection.leftIndex === connection.rightIndex;
+        const leftItem = leftItems[connection.leftIndex];
+        const rightItem = rightItems[connection.rightIndex];
+
+        if (isCorrect) {
+            leftItem.classList.add('correct');
+            rightItem.classList.add('correct');
+        } else {
+            leftItem.classList.add('incorrect');
+            rightItem.classList.add('incorrect');
+        }
+    });
+}
+
 
 function loadContent() {
     const contentDiv = document.querySelector('.content');
