@@ -173,7 +173,7 @@ const lessons = [
                 </div>
             </ul>
         </p>
-        <div class="codeimg"> <img src="../assets/code.png" alt="Web Development"> </div>
+        <div class="codeimg"> <img src="../assets/code3.png" alt="Web Development"> </div>
         `
     },
     {
@@ -264,3 +264,77 @@ document.getElementById('back').addEventListener('click', () => {
 
 // Load the initial content and slides
 loadContent();
+
+function updateNavigation() {
+    document.getElementById('back').disabled = currentIndex === 0;
+    document.getElementById('next').disabled = currentIndex === lessons.length - 1;
+    updateProgressBar(); // Update the progress bar when navigation buttons are updated
+}
+
+function updateProgressBar() {
+    const progress = document.getElementById('progress');
+    const progressPercentage = ((currentIndex + 1) / lessons.length) * 100;
+    progress.style.width = `${progressPercentage}%`;
+}
+
+function loadContent() {
+    const contentDiv = document.querySelector('.content');
+    contentDiv.innerHTML = '';
+
+    const currentItem = lessons[currentIndex];
+
+    if (currentItem.type === 'lesson') {
+        contentDiv.innerHTML = `
+            <h2>${currentItem.title}</h2>
+            <div class="lesson-content">
+                ${currentItem.content}
+            </div>
+        `;
+    } else if (currentItem.type === 'question') {
+        const choicesHTML = currentItem.choices.map((choice, i) => `
+            <div class="choice" data-index="${i}">${choice}</div>
+        `).join('');
+
+        contentDiv.innerHTML = `
+            <p id="question">${currentItem.question}</p>
+            <div class="choices-grid">
+                ${choicesHTML}
+            </div>
+        `;
+
+        // Add event listeners to choices
+        const choices = contentDiv.querySelectorAll('.choice');
+        choices.forEach(choice => {
+            choice.addEventListener('click', function() {
+                const selectedIndex = parseInt(this.getAttribute('data-index'));
+                verifyAnswer(selectedIndex, currentItem.correctAnswer);
+            });
+        });
+    }
+
+    updateNavigation();
+    updateSlides();
+}
+
+function navigateSlides(step) {
+    currentIndex += step;
+    if (currentIndex < 0) {
+        currentIndex = 0; // Prevent going back past the first element
+    } else if (currentIndex >= lessons.length) {
+        currentIndex = lessons.length - 1; // Prevent going past the last element
+    }
+    loadContent();
+}
+
+// Event listeners for navigation buttons
+document.getElementById('next').addEventListener('click', () => {
+    navigateSlides(1);
+});
+
+document.getElementById('back').addEventListener('click', () => {
+    navigateSlides(-1);
+});
+
+// Load the initial content and progress bar
+loadContent();
+updateProgressBar(); // Initialize the progress bar on page load
