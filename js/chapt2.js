@@ -206,10 +206,22 @@ const lessons = [
             { left: '&lt;img&gt;', right: 'Inserts an image' }
         ],
         correctPairs: [0, 1, 2, 3]
+    },
+    {
+        type: 'lesson',
+        title: '',
+        content: `
+        <h1 style="color:red;text-align:center; margin-top:0;"">Fantastic work! 🎉</h1>
+        <p>Now, let's dive into the next chapter, where we'll explore CSS. You'll discover how to style and customize your website, making it truly your own. Excited? I know I am! Let's get started! 🚀</p>
+            <div class="next-chapt">
+            <a href="chapt3.html">
+                <button class="next-chapt">Chapter 3</button>
+            </a>
+            </div>
+        <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
+        `
     }
 ];
-
-
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
@@ -451,7 +463,7 @@ function showPopupImage(imageElement) {
 
     setTimeout(() => {
         imageElement.classList.remove('show');
-    }, 2000);
+    }, 1000);
 }
 
 loadContent();

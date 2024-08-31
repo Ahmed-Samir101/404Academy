@@ -1,0 +1,90 @@
+.navbar {
+    /* padding: 10px 20px; */
+    flex: 1;
+    top: 0;
+    width: 100%;
+    margin-bottom: 60px;
+    /* z-index: 1000; */
+    /* background-color: rgba(255, 255, 255, 0.8); Ensure readability on mobile */
+     /* display: flex;
+    justify-content: space-evenly; */
+    /* align-items: center; */
+}
+
+/* Adjust .con to ensure items remain in a single row */
+.con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+}
+
+/* Ensure nav-items are in one row */
+.nav-items {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    flex-wrap: nowrap; /* Force all items to remain on one line */
+}
+
+.login-btn {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Images in nav-items remain inline */
+.nav-items img {
+    height: 60px;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.login-btn:hover {
+    transform: scale(1.2); /* Grow the image */
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8)); 
+}
+
+.nav-items img:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+.logo img {
+    height: 120px;
+}
+
+@media (max-width: 768px) {
+    .con {
+        justify-content: space-between;
+    }
+    .navbar {
+        padding: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-items {
+        justify-content: center;align-items: center;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    /* Login button remains fixed */
+    .login-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 50%;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-btn img {
+        height: 40px;
+        width: 40px;
+        content: url('../assets/login-mobile.png');
+    }
+}

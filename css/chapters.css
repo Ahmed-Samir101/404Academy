@@ -7,8 +7,23 @@ body {
     background-repeat: repeat;
 }
 
+.background-container {
+    background-size: cover;
+    width: 100%;
+    min-height: 150vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 10vh; */
+    position: relative;
+}
+
 .top {
     text-align: center;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }
 
 .top-decor {
@@ -16,10 +31,10 @@ body {
 }
 
 h1#title {
+    margin: 40px 0px;
     text-align: center;
     font-size: 2rem;
     color: #67d0ba;
-    margin: 20px 0;
     text-shadow: 1px 1px 2px #fff;
 }
 
@@ -314,6 +329,37 @@ li {
     color: #666666; /* Darker gray text */
     cursor: not-allowed;
 }
+
+.next-chapt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.next-chapt button {
+    padding: 15px;
+    background-color: rgb(221, 5, 5);
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.next-chapt button:hover {
+    background-color: rgb(179, 4, 4); /* Darker red on hover */
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
 
 @media (max-width: 768px) {
     .content {
