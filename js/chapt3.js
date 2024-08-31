@@ -26,7 +26,7 @@ const lessons = [
         type: 'lesson',
         title: 'The CSS syntax',
         content: `
-        <p> OK osn klndm ,kasjbf z.ksjbsm,df.,sm.jhsds
+        <p> Let's begin with selectors!
             <ul>
                 <li>Selector: The selector targets the HTML element you want to style. It can be an element name, class, ID, or a more complex selector.<li>
                 <div class="code" style="margin-bottom: 5px;">
@@ -104,6 +104,7 @@ const lessons = [
                         <span class="angle-brackets">&lt;</span><span class="tag">/head</span><span class="angle-brackets">&gt;</span>
                     </p>
                 </div>
+                Pssssttt... Order matters in CSS, the latest will be prioritised, and inline will be prioritised over external.
               </ul>
           </p>
           </body>
@@ -112,7 +113,7 @@ const lessons = [
     },
     {
         type: 'arrange',
-        question: '3) Which tag is used for external CSS?',
+        question: '3) Rearrange the tags into the correct order!',
         content: `
         <ul class="sortable-list">
         <li class="item" draggable="true">
@@ -156,10 +157,85 @@ const lessons = [
         ]
     },
     {
-        type: 'question',
-        question: 'What is JavaScript primarily used for?',
-        choices: ['Creating interactive effects', 'Styling web pages', 'Structuring web pages', 'Managing databases'],
-        correctAnswer: 0
+        type: 'arrange',
+        question: '4) Rearrange the tags into the correct order!',
+        content: `
+        <ul class="sortable-list">
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;body&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;/html&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;/head&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;html&gt</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;/body&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;h1&gth1&lt;/h1&gt</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;head&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>&lt;link rel="stylesheet" href="style.css"&gt;</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+      </ul>
+        `,
+        correctOrder: [
+            '<html>',
+            '<head>',
+            '<link rel="stylesheet" href="style.css">',
+            '</head>',
+            '<body>',
+            '<h1>h1</h1>',
+            '</body>',
+            '</html>'
+        ]
+    },
+    {
+        type: 'lesson',
+        title: 'Comments in CSS',
+        content: `
+            <p> What do you do when you want write a piece of text only for yourself?
+                  <p>You write a comment! Here's how to do it in CSS.</p>
+                  <div class="code" style="margin-bottom: 5px;">
+                      <p>
+                      <span class="comment">/* This is a single-line comment */</span>
+                      </p>
+                  </div>
+                  This will make the text only visisble when accesing the code.<br><br>
+          </p>
+        `
     },
     // {
     //     type: 'lesson',
@@ -186,38 +262,69 @@ const lessons = [
     // },
     {
         type: 'lesson',
-        title: 'Basic HTML Tags',
+        title: 'Color and Background',
         content: `
-        <p>•HTML uses tags to define elements on a webpage. Most tags come in pairs: an opening tag &lttag&gt and a closing tag &lt/tag&gt.
-        Common Tags:
+        <p>To make your website pop, you need to be able to add color and backgrounds.
             <ul>
-                <li>&lth1&gt to &lth6&gt: Heading tags. &lth1&gt is the largest heading, &lth6&gt is the smallest.</li>
+                <li>In order to add color to a certain part of the website, you can add it to a selector as a property.</li>
                 <div class="code">
                     <p>
-                        <span class="angle-brackets">&lt;</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
-                        <br>
-                        <span class="angle-brackets">&lt;</span><span class="tag">h3</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h3</span><span class="angle-brackets">&gt;</span>
-                        <br>
-                        <span class="angle-brackets">&lt;</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h6</span><span class="angle-brackets">&gt;</span>
+                        h1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                        <span class="tag">color:</span>&nbsp;<span class="keyword">blue</span><span class="angle-brackets">;</span><br>
+                        <span class="angle-brackets">}</span>
                     </p>
                 </div>
-                <li>Paragraph (&ltp&gt): Used for blocks of text</li>
+                The color value can also be replaced with:
+                <li>RGB value: rgb(red, green, blue)</li>
+                <li>HEX value: #rrggbb</li>
+                <li>HSL value: hsl(hue, saturation, lightness)</li>
+                <li>"background-" followed by color, image, repeat, attachment or position can be used to change the behaviour and properties of the background.</li>
                 <div class="code">
                     <p>
-                        <span class="angle-brackets">&lt;</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>I love web development!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
+                        body&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                        <span class="tag">background-color:</span>&nbsp;<span class="keyword">blue</span><span class="angle-brackets">;</span><br>
+                        <span class="angle-brackets">}</span>
                     </p>
-                </div>
-                <li>Links (&lta&gt): Create clickable links</li>
-                <div class="code">
-                    <p>
-                    <span class="angle-brackets">&lt;</span><span class="tag">a</span>
-                    <span class="attribute">href</span>=<span class="string">"index.html"</span>
-                    <span class="angle-brackets">&gt;</span>Click me!<span class="angle-brackets">&lt;/</span><span class="tag">a</span><span class="angle-brackets">&gt;</span>
-                    </p>
-                </div>
             </ul>
         </p>
-        <div class="codeimg"> <img src="../assets/code1.png" alt="Web Development"> </div>
+        `
+    },
+    {
+        type: 'lesson',
+        title: 'Box model',
+        content: `
+        <p>You want your website to look well structured, right? Box models are necessary for that!
+            <ul>
+            What is a box model? CSS Box Model is a Fundamental concept in CSS that governs how elements are structured and positioned on a webpage.<br>
+            The box model is a container that includes the following properties (ordered from the innermost property):
+                <li>Content: The actual data in text, images, or other media forms can be sized using the width and height property.</li>
+                <li>Padding: Padding is used to create space around the element, inside any defined border.</li>
+                <li>Border: The border is used to cover the content & any padding, & also allows setting the style, color, and width of the border.</li>
+                <li>Margin: Margin is used to create space around the element ie., around the border area.</li>
+            </ul>
+            <div class="img"> <img src="../assets/box_model.png" alt="CSS box model"> </div>
+        </p>
+        `
+    },
+    {
+        type: 'lesson',
+        title: 'Box model',
+        content: `
+        <p>Here's an example:
+            <div class="code">
+                    <p>
+                        .box&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                        <span class="tag">width:</span>&nbsp;<span class="keyword">350px</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="tag">height:</span>&nbsp;<span class="keyword">150px</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="tag">margin:</span>&nbsp;<span class="keyword">10px</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="tag">padding:</span>&nbsp;<span class="keyword">25px</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="tag">border:</span>&nbsp;<span class="keyword">5px solid black</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="angle-brackets">}</span>
+                    </p>
+                </div>
+                Result:
+                <div class="img"> <img src="../assets/box_model_example.png" alt="Example box model"> </div>
+        </p>
         `
     },
     {
