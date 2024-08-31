@@ -1,3 +1,10 @@
+// vars
+
+
+const correctImage = document.getElementById('correct-image');
+const incorrectImage = document.getElementById('incorrect-image');
+
+
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
     document.getElementById('next').disabled = currentIndex === lessons.length - 1;
@@ -55,7 +62,7 @@ function loadContent() {
         contentDiv.innerHTML = `
             <p id="question">${currentItem.question}</p>
             <div class="img">
-            <img style="marign-bottom: 25px;" src="../assets/spongebob-thinking.gif">
+                <img style="margin-bottom: 25px;" src="../assets/spongebob-thinking.gif">
             </div>
             <div class="choices-grid">
                 ${choicesHTML}
@@ -93,22 +100,92 @@ function loadContent() {
 
         setupDotConnection();
         document.getElementById('next').disabled = false;
+    } else if (currentItem.type === 'arrange') {
+        contentDiv.innerHTML = `
+            <h2>${currentItem.question}</h2>
+            ${currentItem.content}
+            <div class="controls">
+                <button id="verifyArrangeButton">Verify</button>
+            </div>
+        `;
+
+        document.getElementById('next').disabled = true; // Disable "Next" button initially
+
+        setupSortableList();
+        document.getElementById('verifyArrangeButton').addEventListener('click', function() {
+            verifyArrangeOrder();
+        });
     }
-
-    document.getElementById('resetButton').addEventListener('click', function() {
-    console.log('Reset button clicked');
-    resetConnections();
-});
-
-document.getElementById('verifyButton').addEventListener('click', function() {
-    console.log('Verify button clicked');
-    verifyConnections();
-});
-
     updateNavigation();
     updateSlides();
 }
 
+function verifyArrangeOrder() {
+    const items = document.querySelectorAll('.sortable-list .item');
+    let correctOrder = true;
+
+    items.forEach((item, index) => {
+        const expectedName = lessons[currentIndex].correctOrder[index];
+        const actualName = item.querySelector('.details span').textContent;
+
+        if (expectedName !== actualName) {
+            correctOrder = false;
+        }
+    });
+
+    if (correctOrder) {
+        showPopupImage(correctImage);
+        document.getElementById('next').disabled = false; // Enable "Next" button
+    } else {
+        showPopupImage(incorrectImage);
+        document.getElementById('next').disabled = true; // Keep "Next" button disabled
+    }
+}
+
+function setupSortableList() {
+    const sortableList = document.querySelector('.sortable-list');
+    const items = sortableList.querySelectorAll('.item');
+
+    items.forEach(item => {
+        item.addEventListener('dragstart', dragStart);
+        item.addEventListener('dragover', dragOver);
+        item.addEventListener('drop', drop);
+        item.addEventListener('dragend', dragEnd);
+    });
+
+    let draggedItem = null;
+
+    function dragStart(e) {
+        draggedItem = this;
+        setTimeout(() => {
+            this.classList.add('hidden');
+        }, 0);
+    }
+
+    function dragOver(e) {
+        e.preventDefault();
+    }
+
+    function drop(e) {
+        e.preventDefault();
+        if (this !== draggedItem) {
+            let allItems = [...sortableList.querySelectorAll('.item')];
+            let currentPos = allItems.indexOf(draggedItem);
+            let newPos = allItems.indexOf(this);
+
+            if (currentPos < newPos) {
+                this.after(draggedItem);
+            } else {
+                this.before(draggedItem);
+            }
+        }
+    }
+
+    function dragEnd(e) {
+        this.classList.remove('hidden');
+        draggedItem = null;
+    }
+}
 
 let selectedLeft = null;
 let connections = [];
@@ -187,8 +264,6 @@ function resetConnections() {
 // Verify if the connections are correct
 function verifyAnswer(selectedIndex, correctIndex) {
     const choices = document.querySelectorAll('.choice');
-    const correctImage = document.getElementById('correct-image');
-    const incorrectImage = document.getElementById('incorrect-image');
 
     if (selectedIndex === correctIndex) {
         choices[selectedIndex].style.backgroundColor = '#67d0ba';
@@ -211,7 +286,11 @@ setupDotConnection();
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
-    document.getElementById('next').disabled = !correctAnswerSelected && lessons[currentIndex].type === 'question';
+    if (lessons[currentIndex].type === 'question' || lessons[currentIndex].type === 'arrange') {
+        document.getElementById('next').disabled = !correctAnswerSelected;
+    } else {
+        document.getElementById('next').disabled = false;
+    }
     updateProgressBar(); // Update the progress bar when navigation buttons are updated
 }
 
@@ -253,3 +332,32 @@ document.getElementById('back').addEventListener('click', () => {
 
 loadContent();
 
+const sortableList = document.querySelector(".sortable-list");
+const items = sortableList.querySelectorAll(".item");
+
+items.forEach(item => {
+    item.addEventListener("dragstart", () => {
+        // Adding dragging class to item after a delay
+        setTimeout(() => item.classList.add("dragging"), 0);
+    });
+    // Removing dragging class from item on dragend event
+    item.addEventListener("dragend", () => item.classList.remove("dragging"));
+});
+
+const initSortableList = (e) => {
+    e.preventDefault();
+    const draggingItem = document.querySelector(".dragging");
+    // Getting all items except currently dragging and making array of them
+    let siblings = [...sortableList.querySelectorAll(".item:not(.dragging)")];
+
+    // Finding the sibling after which the dragging item should be placed
+    let nextSibling = siblings.find(sibling => {
+        return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
+    });
+
+    // Inserting the dragging item before the found sibling
+    sortableList.insertBefore(draggingItem, nextSibling);
+}
+
+sortableList.addEventListener("dragover", initSortableList);
+sortableList.addEventListener("dragenter", e => e.preventDefault());

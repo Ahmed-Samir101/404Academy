@@ -6,89 +6,183 @@ const totalSlides = slides.length;
 const lessons = [
     {
         type: 'lesson',
-        title: 'What is Front-End Web Development?',
+        title: 'CSS Basics: Styling Your Webpage?',
         content: `
-            <p>Front-end web development is all about crafting the part of a website that users actually see and interact with—think of it as the stylish shop window of the web! The main tools in a front-end developer’s toolkit are <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>. HTML builds the structure, CSS adds the style and flair, and JavaScript brings everything to life with interactive features. Together, they create the magic that makes websites look and feel awesome.</p>
-            <div class="img"> <img src="../assets/frontend-vs-backend.png" alt="Web Development"> </div>
+            <p>What is <b style="color:blue;">CSS</b>? CSS (Cascading Style Sheets) is the language used to describe the presentation of a web page, including <i>colors</i>, <i>layout</i>, and <i>fonts</i>. It allows you to control the appearance of multiple web pages at once.
+            <br><br>
+                <b style="color:blue;">CSS</b> separates the content of a web page (HTML) from its presentation, making it easier to maintain and update.
+                It allows for more flexibility and control in the design process, ensuring a consistent look across different pages of a website.
+            </p>
+            <div class="img"> <img src="../assets/css.png" alt="Web Development"> </div>
         `
     },
     {
         type: 'question',
-        question: '1) Which one make the webpage interactive?',
-        choices: ['HTML', 'CSS', 'JavaScript', 'Python'],
+        question: '1) What is CSS?',
+        choices: ['A programming language', 'A markup language', 'A styling language', 'A database system'],
         correctAnswer: 2
     },
     {
         type: 'lesson',
-        title: 'The Foundation of Frontend – HTML',
+        title: 'The CSS syntax',
         content: `
-        <p>HTML (HyperText Markup Language) is the backbone of any website. It structures the content by defining elements like headings, paragraphs, images, and links. Think of it as the skeleton of a webpage—without it, there would be no content for users to see.</p>
-        <div class="code">
-            <p>
-                <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span>
-            </p>
-            <p>  <span class="comment">&lt;!-- This is a comment --&gt;</span></p>
-            <p>
-                <span class="angle-brackets">&lt;</span><span class="tag">h1</span>
-                <span class="attribute">style</span>=<span class="string">"color: red;"</span>
-                <span class="angle-brackets">&gt;</span>Hello World<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
-            </p>
-            <p><span class="angle-brackets">&lt;/</span><span class="tag">html</span><span class="angle-brackets">&gt;</span></p>
-        </div>
-    </div>
+        <p> OK osn klndm ,kasjbf z.ksjbsm,df.,sm.jhsds
+            <ul>
+                <li>Selector: The selector targets the HTML element you want to style. It can be an element name, class, ID, or a more complex selector.<li>
+                <div class="code" style="margin-bottom: 5px;">
+                    <p>
+                        h1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                        <span class="tag">color:</span>&nbsp;<span class="keyword">blue</span><span class="angle-brackets">;</span><br>
+                        <span class="angle-brackets">}</span>
+                    </p>
+                </div>
+                In this example, the h1 selector targets all &lt;h1&gt; elements and applies the style within the curly braces.<br><br>
+                <li>Property: The property is the aspect of the element you want to change. For instance, color, font-size, margin, etc.</li>
+                <li>Value: The value is the specific setting for that property. It could be a color, size, or another specific descriptor.</li><br>
+                <li>Example of CSS Syntax: Let's break down a CSS rule:</li>
+                <div class="code">
+                    <p>
+                        p&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                        <span class="tag">font-size:</span>&nbsp;<span class="keyword">18px</span><span class="angle-brackets">;</span><br>&nbsp;
+                        <span class="tag">color:</span>&nbsp;<span class="keyword">red</span><span class="angle-brackets">;</span><br>
+                        <span class="angle-brackets">}</span>
+                    </p>
+                </div>
+                <li>Selector: p targets all paragraph (&ltp&gt;) elements.</li>
+                <li>Property: font-size and color.</li>
+                <li>Value: 18px for font-size and darkgray for color.</li>
+            </ul>
+        </p>
         `
     },
     {
         type: 'question',
-        question: '2) What is the primary role of HTML in web development?',
-        choices: ['Interactivity', 'Structure', 'Styling', 'Data storage'],
+        question: '2) In the CSS rule h1 { color: blue; }, what does the h1 represent?',
+        choices: ['Property', 'Selector', 'Value', 'Element'],
         correctAnswer: 1
     },
     {
         type: 'lesson',
-        title: 'Adding Style and Interactivity – CSS & JavaScriptL',
+        title: 'Applying CSS:',
         content: `
-        <p><b style="color:blue;">CSS</b> (Cascading Style Sheets) is what makes your website look good. It controls the appearance of HTML elements, allowing you to add colors, adjust layouts, and create a visually appealing site.
-        <br>
-        <b style="color:#cfb80e;">JavaScript</b> adds interactivity. It’s a programming language that makes your website dynamic, enabling features like interactive forms, animations, and more. It’s what turns a static webpage into something users can engage with.
-        </p>
-        <div class="img"> <img src="../assets/hcj.png" alt="meme"> </div>
+        <!DOCTYPE html>
+        <html>
+          <body>
+            <p> Now let's learn how to use CSS inside of an HTML file
+              <ul>
+                  <li>Inline CSS: Inline CSS is used to apply a unique style to a single HTML element. It’s written directly in the style attribute of the HTML tag.</li>
+                  <div class="code" style="margin-bottom: 5px;">
+                      <p>
+                      <span class="angle-brackets">&lt;</span><span class="tag">p</span>
+                      <span class="attribute">style</span>=<span class="string">"color: red;"</span><span class="angle-brackets">&gt;</span>
+                      Click me!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
+                      </p>
+                  </div>
+                  This will make the text inside the paragraph bold and red.<br><br>
+                  
+                  <li>Internal CSS: Internal CSS is used to define styles for a single HTML document. It’s written inside a &ltstyle&gt; element, within the &lthead&gt; section of the HTML document.</li>
+                  <div class="code">
+                      <p>
+                          <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span><br>&nbsp;
+                          <span class="angle-brackets">&lt;</span><span class="tag">style</span><span class="angle-brackets">&gt;</span><br>&nbsp;
+                              p&nbsp;<span class="angle-brackets">{</span><br>&nbsp;&nbsp;
+                              <span class="tag">font-size:</span>&nbsp;<span class="keyword">18px</span><span class="angle-brackets">;</span><br>&nbsp;&nbsp;
+                              <span class="tag">color:</span>&nbsp;<span class="keyword">red</span><span class="angle-brackets">;</span><br>&nbsp;&nbsp;
+                              <span class="angle-brackets">}</span><br>&nbsp;
+                          <span class="angle-brackets">&lt;</span><span class="tag">/style</span><span class="angle-brackets">&gt;</span><br>
+                          <span class="angle-brackets">&lt;</span><span class="tag">/html</span><span class="angle-brackets">&gt;</span>
+                      </p>
+                  </div>
+                  This example sets the font size and line height for all &lt;p&gt; elements.
+                  <li>External CSS: External CSS is used to apply styles to multiple web pages. It involves linking an external .css file to your HTML document.</li>
+                  <div class="code">
+                    <p>
+                        <span class="angle-brackets">&lt;</span><span class="tag">head</span><span class="angle-brackets">&gt;</span><br>&nbsp;
+                        <span class="angle-brackets">&lt;</span><span class="tag">link</span>
+                        <span class="attribute">rel</span>=<span class="string">"stylesheet"</span><span class="angle-brackets">&gt;</span>
+                        <span class="attribute">href</span>=<span class="string">"styles.css"</span><span class="angle-brackets">&gt;</span><br>
+                        <span class="angle-brackets">&lt;</span><span class="tag">/head</span><span class="angle-brackets">&gt;</span>
+                    </p>
+                </div>
+              </ul>
+          </p>
+          </body>
+        </html>
         `
+    },
+    {
+        type: 'arrange',
+        question: '3) Which tag is used for external CSS?',
+        content: `
+        <ul class="sortable-list">
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>2</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>1</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>3</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>4</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+        <li class="item" draggable="true">
+          <div class="details">
+            <span>5</span>
+          </div>
+          <i class="uil uil-draggabledots"></i>
+        </li>
+      </ul>
+        `,
+        correctOrder: [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5'
+        ]
     },
     {
         type: 'question',
-        question: '3) What is the primary function of JavaScript in web development?',
-        choices: ['Data Storage', 'Structure', 'Styling', 'Interactivity'],
-        correctAnswer: 3
-    },
-    {
-        type: 'lesson',
-        title: 'The Basic Structure of an HTML Document',
-        content: `
-        <p>Objective: Learn the basic structure of an HTML document.
-        Content:
-        An HTML document typically starts with a <b style="color:orange;">&lt!DOCTYPE html&gt</b>; declaration.
-        It is followed by <b style="color:orange;">&lthtml&gt;</b>, <b style="color:orange;">&lthead&gt</b>, and <b style="color:orange;">&ltbody&gt</b> tags.
-        </p>
-        <div class="code">
-            <p>
-                <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span>
-            </p>
-            <p>  <span class="comment">&lt;!-- This is a comment --&gt;</span></p>
-            <p>
-                <span class="angle-brackets">&lt;</span><span class="tag">h1</span>
-                <span class="attribute">style</span>=<span class="string">"color: red;"</span>
-                <span class="angle-brackets">&gt;</span>Hello World<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
-            </p>
-            <p><span class="angle-brackets">&lt;/</span><span class="tag">html</span><span class="angle-brackets">&gt;</span></p>
-        </div>
-        `
+        question: 'What is JavaScript primarily used for?',
+        choices: ['Creating interactive effects', 'Styling web pages', 'Structuring web pages', 'Managing databases'],
+        correctAnswer: 0
     },
     // {
-    //     type: 'question',
-    //     question: 'What is JavaScript primarily used for?',
-    //     choices: ['Creating interactive effects', 'Styling web pages', 'Structuring web pages', 'Managing databases'],
-    //     correctAnswer: 0
+    //     type: 'lesson',
+    //     title: 'The Basic Structure of an HTML Document',
+    //     content: `
+    //     <p>Objective: Learn the basic structure of an HTML document.
+    //     Content:
+    //     An HTML document typically starts with a <b style="color:orange;">&lt!DOCTYPE html&gt</b>; declaration.
+    //     It is followed by <b style="color:orange;">&lthtml&gt;</b>, <b style="color:orange;">&lthead&gt</b>, and <b style="color:orange;">&ltbody&gt</b> tags.
+    //     </p>
+    //     <div class="code">
+    //         <p>
+    //             <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;</span>
+    //         </p>
+    //         <p>  <span class="comment">&lt;!-- This is a comment --&gt;</span></p>
+    //         <p>
+    //             <span class="angle-brackets">&lt;</span><span class="tag">h1</span>
+    //             <span class="attribute">style</span>=<span class="string">"color: red;"</span>
+    //             <span class="angle-brackets">&gt;</span>Hello World<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
+    //         </p>
+    //         <p><span class="angle-brackets">&lt;/</span><span class="tag">html</span><span class="angle-brackets">&gt;</span></p>
+    //     </div>
+    //     `
     // },
     {
         type: 'lesson',
