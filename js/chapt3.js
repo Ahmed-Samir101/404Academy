@@ -117,42 +117,42 @@ const lessons = [
         <ul class="sortable-list">
         <li class="item" draggable="true">
           <div class="details">
-            <span>2</span>
+            <span>&lt;/style&gt;</span>
           </div>
           <i class="uil uil-draggabledots"></i>
         </li>
         <li class="item" draggable="true">
           <div class="details">
-            <span>1</span>
+            <span>p {</span>
           </div>
           <i class="uil uil-draggabledots"></i>
         </li>
         <li class="item" draggable="true">
           <div class="details">
-            <span>3</span>
+            <span>}</span>
           </div>
           <i class="uil uil-draggabledots"></i>
         </li>
         <li class="item" draggable="true">
           <div class="details">
-            <span>4</span>
+            <span>color: red;</span>
           </div>
           <i class="uil uil-draggabledots"></i>
         </li>
         <li class="item" draggable="true">
           <div class="details">
-            <span>5</span>
+            <span>&lt;style&gt;</span>
           </div>
           <i class="uil uil-draggabledots"></i>
         </li>
       </ul>
         `,
         correctOrder: [
-            '1',
-            '2',
-            '3',
-            '4',
-            '5'
+            '<style>',
+            'p {',
+            'color: red;',
+            '}',
+            '</style>'
         ]
     },
     {

@@ -129,6 +129,8 @@ function verifyArrangeOrder() {
         const actualName = item.querySelector('.details span').textContent;
 
         if (expectedName !== actualName) {
+            console.log(expectedName)
+            console.log(actualName)
             correctOrder = false;
         }
     });
