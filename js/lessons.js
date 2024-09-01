@@ -21,23 +21,22 @@ function updateSlides() {
 }
 
 function verifyConnections() {
-    console.log('Verify button clicked'); // Debug log
-    const leftItems = document.querySelectorAll('.left-column .dot-item');
-    const rightItems = document.querySelectorAll('.right-column .dot-item');
-    
-    connections.forEach(connection => {
-        const isCorrect = connection.leftIndex === connection.rightIndex;
-        const leftItem = leftItems[connection.leftIndex];
-        const rightItem = rightItems[connection.rightIndex];
-
-        if (isCorrect) {
-            leftItem.classList.add('correct');
-            rightItem.classList.add('correct');
-        } else {
-            leftItem.classList.add('incorrect');
-            rightItem.classList.add('incorrect');
+    let isCorrect = true;
+    connections.forEach((connection, index) => {
+        const correctPair = lessons[currentIndex].pairs[index];
+        if (correctPair.left !== connection.left || correctPair.right !== connection.right) {
+            isCorrect = false;
         }
     });
+
+    if (isCorrect && connections.length === lessons[currentIndex].pairs.length) {
+        showPopupImage(correctImage);
+        correctAnswerSelected = true;
+        document.getElementById('next').disabled = false;
+    } else {
+        showPopupImage(incorrectImage);
+        correctAnswerSelected = false;
+    }
 }
 
 
@@ -76,7 +75,29 @@ function loadContent() {
                 verifyAnswer(selectedIndex, currentItem.correctAnswer);
             });
         });
-    } else if (currentItem.type === 'connect-the-dots') {
+    }else if (currentItem.type === 'question-with-code') {
+        const choicesHTML = currentItem.choices.map((choice, i) => `
+            <div class="choice" data-index="${i}">${choice}</div>
+        `).join('');
+
+        contentDiv.innerHTML = `
+            <p id="question">${currentItem.question}</p>
+            <div class="lesson-content">
+                ${currentItem.content}
+            </div>
+            <div class="choices-grid">
+                ${choicesHTML}
+            </div>
+        `;
+
+        const choices = contentDiv.querySelectorAll('.choice');
+        choices.forEach(choice => {
+            choice.addEventListener('click', function() {
+                const selectedIndex = parseInt(this.getAttribute('data-index'));
+                verifyAnswer(selectedIndex, currentItem.correctAnswer);
+            });
+        });
+    }  else if (currentItem.type === 'connect-the-dots') {
         const pairsHTML = `
             <div class="connect-the-dots">
                 <div class="left-column">
@@ -97,9 +118,11 @@ function loadContent() {
                 <button id="verifyButton">Verify</button>
             </div>
         `;
-
+        
+        document.getElementById('next').disabled = true;
         setupDotConnection();
-        document.getElementById('next').disabled = false;
+        document.getElementById('resetButton').addEventListener('click', resetConnections);
+        document.getElementById('verifyButton').addEventListener('click', verifyConnections);
     } else if (currentItem.type === 'arrange') {
         contentDiv.innerHTML = `
             <h2>${currentItem.question}</h2>
@@ -195,8 +218,10 @@ let correctAnswerSelected = false;
 
 // Initialize the dot connection setup
 function setupDotConnection() {
+    connections = [];  // Reset connections array
     const leftItems = document.querySelectorAll('.left-column .dot-item');
     const rightItems = document.querySelectorAll('.right-column .dot-item');
+    let selectedLeft = null;
 
     leftItems.forEach((item, leftIndex) => {
         item.addEventListener('click', () => {
@@ -209,11 +234,13 @@ function setupDotConnection() {
     rightItems.forEach((item, rightIndex) => {
         item.addEventListener('click', () => {
             if (selectedLeft !== null) {
-                const connection = {
-                    leftIndex: selectedLeft,
-                    rightIndex: rightIndex
-                };
-                connections.push(connection);
+                const leftContent = leftItems[selectedLeft].textContent.trim();
+                const rightContent = rightItems[rightIndex].textContent.trim();
+
+                connections.push({
+                    left: leftContent,
+                    right: rightContent
+                });
 
                 drawConnection(leftItems[selectedLeft], item, '#007bff');
                 selectedLeft = null;
@@ -223,7 +250,7 @@ function setupDotConnection() {
     });
 }
 
-// Clear selection state from the items
+// Clear selections
 function clearSelections(items) {
     items.forEach(item => item.classList.remove('selected'));
 }
