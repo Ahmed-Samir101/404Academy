@@ -328,44 +328,60 @@ const lessons = [
         `
     },
     {
+        type: 'lesson',
+        title: 'Positioning',
+        content: `
+        <p>There will be many parts in your website, which is why it's important to be able to position them correctly.
+            <ul>
+            The position of an element is determined by the position property. There are five position values:
+                <li>Static: this is the default position value. An element with this position value will follow the flow of the file.</li>
+                <li>Relative: an element with this position value is positioned relative to its normal position.</li>
+                <li>Fixed: an element with this position value has the same relative position when the viewer scrolls through the web page.</li>
+                <li>Absolute: an element with this position value in taken out of the normal document flow.</li>
+                <li>Sticky: an element with this position value combines relative and fixed features. The element is treated as position: relative until it reaches a specified threshold, then it becomes position: fixed.</li>
+            </ul>
+        </p>
+        `
+    },
+    {
+      type: 'lesson',
+      title: 'Website layout',
+      content: `
+      <p>While you can arrange your website however you want, there are conventions.<br>
+      Generally speaking there are five sections in a website:
+      <ul>
+        <li>Header</li>
+        <li>Navigation menu</li>
+        <li>Main content</li>
+        <li>Content</li>
+        <li>Footer</li>
+      </ul>
+      <div class="img"> <img src="../assets/website_layout.png" alt="Website layout"> </div>
+      </p>
+      `
+    },
+    {
+      type: 'lesson',
+      title: 'Typography',
+      content: `
+      <p>Text is an important element to a website and there are ways to make them look more prominent.<br>
+      Selecting the right font and color for your text can make or break your website.
+      <ul>
+        <li>Header</li>
+        <li>Navigation menu</li>
+        <li>Main content</li>
+        <li>Content</li>
+        <li>Footer</li>
+      </ul>
+      <div class="img"> <img src="../assets/website_layout.png" alt="Website layout"> </div>
+      </p>
+      `
+    },
+    {
         type: 'question',
         question: '4) Which tag is used to create a link?',
         choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
         correctAnswer: 3
-    },
-    {
-        type: 'lesson',
-        title: 'Building a Simple Webpage',
-        content: `
-        <p>Now lets combine what we have learned so far to create your first webpage!
-            <ul>
-                <li>Use the tags you’ve learned (&lth1&gt, &ltp&gt, &lta&gt) to structure your content.</li>
-                <div class="code">
-                    <p>
-                        <span class="angle-brackets">&lt;</span><span class="tag">!DOCTYPE html</span><span class="angle-brackets">&gt;</span>
-                        <br>
-                        <span class="angle-brackets">&lt;</span><span class="tag">html</span><span class="angle-brackets">&gt;
-                        <br>&nbsp;
-                        <span class="angle-brackets">&lt;</span><span class="tag">body</span><span class="angle-brackets">&gt;
-                        <br>&nbsp;&nbsp;
-                        <span class="angle-brackets">&lt;</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>Hello World!<span class="angle-brackets">&lt;/</span><span class="tag">h1</span><span class="angle-brackets">&gt;</span>
-                        <br>&nbsp;&nbsp;
-                        <span class="angle-brackets">&lt;</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>I am learning web development, yay!<span class="angle-brackets">&lt;/</span><span class="tag">p</span><span class="angle-brackets">&gt;</span>
-                        <br>&nbsp;&nbsp;
-                        <span class="angle-brackets">&lt;</span><span class="tag">a</span>
-                        <span class="attribute">href</span>=<span class="string">"index.html"</span>
-                        <span class="angle-brackets">&gt;</span>Click me!<span class="angle-brackets">&lt;/</span><span class="tag">a</span><span class="angle-brackets">&gt;</span>
-                        <br>&nbsp;
-                        <span class="angle-brackets">&lt;</span><span class="tag">/body</span><span class="angle-brackets">&gt;
-                        <br>
-                        <span class="angle-brackets">&lt;</span><span class="tag">/html</span><span class="angle-brackets">&gt;
-
-                    </p>
-                </div>
-            </ul>
-        </p>
-        <div class="codeimg"> <img src="../assets/code2.png" alt="Web Development"> </div>
-        `
     },
     {
         type: 'lesson',
