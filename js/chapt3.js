@@ -290,16 +290,10 @@ const lessons = [
         `
     },
     {
-      type: 'question',
-      question: '4) Which tag is used to create a link?',
-      choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
-      correctAnswer: 3
-  },
-    {
         type: 'lesson',
         title: 'Box model',
-        content: `
-        <p>You want your website to look well structured, right? Box models are necessary for that!
+        content: `     
+         <p>You want your website to look well structured, right? Box models are necessary for that!
             <ul>
             What is a box model? CSS Box Model is a Fundamental concept in CSS that governs how elements are structured and positioned on a webpage.<br>
             The box model is a container that includes the following properties (ordered from the innermost property):
@@ -367,6 +361,12 @@ const lessons = [
       `
     },
     {
+      type: 'question',
+      question: `You are in the middle of designing your website. Where should you put your hyperlinks to other pages of the website?`,
+      choices: ['Header', 'Footer', 'Content', 'Navigation'],
+      correctAnswer: 3
+    },
+    {
       type: 'lesson',
       title: 'Typography',
       content: `
@@ -396,6 +396,21 @@ const lessons = [
       </ul>
       </p>
       `
+    },
+    {
+      type: 'question',
+      question: `What would happen when this code is run?
+      <div class="code">
+        <p>
+            .h1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+            <span class="comment">/*margin: 20px*/</span>
+            <span class="tag">font-family:</span>&nbsp;<span class="keyword">Helvetica</span><span class="angle-brackets">;</span><br>
+            <span class="tag">border:</span>&nbsp;<span class="keyword">20px blue</span><span class="angle-brackets">;</span><br>
+            <span class="angle-brackets">}</span>
+        </p>
+      </div>`,
+      choices: ['h1 gains a blue border', 'h1 has a margin of 20 pixels', 'nothing', 'h1 has the serif font'],
+      correctAnswer: 0
     },
     {
       type: 'lesson',
@@ -462,10 +477,10 @@ const lessons = [
       `
     },
     {
-        type: 'question',
-        question: '4) Which tag is used to create a link?',
-        choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
-        correctAnswer: 3
+      type: 'question',
+      question: `Why is it important to include fallback fonts in your CSS when specifying a font-family?`,
+      choices: ['To improve the performance of the website by reducing the loading time of fonts.', 'To enable the browser to apply text-transform properties more effectively', 'To ensure that the text remains legible and visually appealing even if the preferred font fails to load.', 'To prevent the browser from using any default styles for the text.'],
+      correctAnswer: 3
     },
     // {
     //     type: 'lesson',
@@ -474,10 +489,10 @@ const lessons = [
     //     <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
     //     <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
     //     `
-    // },
+    // }, 
     {
         type: 'connect-the-dots',
-        question: `Match selectors to their values
+        question: `Match selectors to their values 
         <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
         pairs: [
             { left: '.p {}', right: 'color: red' },
