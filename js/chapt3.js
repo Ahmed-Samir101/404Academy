@@ -227,7 +227,7 @@ const lessons = [
         title: 'Comments in CSS',
         content: `
             <p> What do you do when you want write a piece of text only for yourself?
-                  <p>You write a comment! Here's how to do it in CSS.</p>
+                  You write a comment! Here's how to do it in CSS.
                   <div class="code" style="margin-bottom: 5px;">
                       <p>
                       <span class="comment">/* This is a single-line comment */</span>
