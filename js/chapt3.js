@@ -365,15 +365,92 @@ const lessons = [
       title: 'Typography',
       content: `
       <p>Text is an important element to a website and there are ways to make them look more prominent.<br>
-      Selecting the right font and color for your text can make or break your website.
+      Selecting the right font and color for your text can make or break your website. So here's how to customize that.
       <ul>
-        <li>Header</li>
-        <li>Navigation menu</li>
-        <li>Main content</li>
-        <li>Content</li>
-        <li>Footer</li>
+        There are multiple properties for font:
+        <li>font-family: specifies the font type of the text.
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-family:</span>&nbsp;<span class="keyword">"Times New Roman", Times, serif</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        There are five generic font familes:
+          <ul>
+            <li>Serif</li>
+            <li>Sans-serif</li>
+            <li>Monospace</li>
+            <li>Cursive</li>
+            <li>Fantasy</li>
+          </ul>
+          Note: Font names that have more than one word must be put inside "" (double quotes).
+          <li>Fallback fonts: Not all fonts are installed in all browsers. Which is why it's good to have one or more fallback fonts.<br>
+          In the above example, the fallback fonts are Times and serif. Times New Roman is the font that will be shown first if it's available.</li>
       </ul>
-      <div class="img"> <img src="../assets/website_layout.png" alt="Website layout"> </div>
+      </p>
+      `
+    },
+    {
+      type: 'lesson',
+      title: 'Typography',
+      content: `
+      <p>
+      <ul>
+        <li>font-size: this property is used to specify the size of the text.</li>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-size:</span>&nbsp;<span class="keyword">40px</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        <li>font-style: this property is mostly used to specify italic text. This property have three values:</li>
+        <ul>
+          <li>normal</li>
+          <li>italic</li>
+          <li>oblique</li>
+        </ul>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-style:</span>&nbsp;<span class="keyword">italic</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+      </ul>
+      </p>
+      `
+    },
+    {
+      type: 'lesson',
+      title: 'Typography',
+      content: `
+      <p>
+      <ul>
+        <li>font-weight: this property sets how thick or thin characters in text should be displayed. There are four types of values:</li>
+        <ul>
+          <li>keyword values</li>
+          <li>numeric values</li>
+          <li>Keyword values relative to the parent</li>
+          <li>global values</li>
+        </ul>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-weight:</span>&nbsp;<span class="keyword">bold</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        <li>font-variant: this property specifies whether or not a text should be displayed in a small-caps font.</li>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-variant:</span>&nbsp;<span class="keyword">small-caps</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+      </ul>
       </p>
       `
     },
@@ -382,28 +459,6 @@ const lessons = [
         question: '4) Which tag is used to create a link?',
         choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
         correctAnswer: 3
-    },
-    {
-        type: 'lesson',
-        title: 'Working with Images in HTML',
-        content: `
-        <p>Now lets learn how to add images to your webpage!
-            <ul>
-                <li>You can use the &ltimg&gt tag to insert images into your webpage.</li>
-                <li>The &ltimg&gt tag is self-closing, which means it doesn’t need a separate closing tag.</li>
-                <li>You need to use the src attribute to specify the path to the image file and the alt attribute for alternative text.</li>
-                <div class="code">
-                    <p>
-                        <span class="angle-brackets">&lt;</span><span class="tag">img</span>
-                        <span class="attribute">src</span>=<span class="string">"path/to/your/image.jpg"</span>
-                        <span class="attribute">alt</span>=<span class="string">"funny cat meme"</span>
-                        <span class="angle-brackets">&gt;</span>
-                    </p>
-                </div>
-            </ul>
-        </p>
-        <div class="codeimg"> <img src="../assets/code3.png" alt="Web Development"> </div>
-        `
     },
     // {
     //     type: 'lesson',
