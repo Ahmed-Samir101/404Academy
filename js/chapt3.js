@@ -292,8 +292,8 @@ const lessons = [
     {
         type: 'lesson',
         title: 'Box model',
-        content: `
-        <p>You want your website to look well structured, right? Box models are necessary for that!
+        content: `     
+         <p>You want your website to look well structured, right? Box models are necessary for that!
             <ul>
             What is a box model? CSS Box Model is a Fundamental concept in CSS that governs how elements are structured and positioned on a webpage.<br>
             The box model is a container that includes the following properties (ordered from the innermost property):
@@ -361,49 +361,126 @@ const lessons = [
       `
     },
     {
+      type: 'question',
+      question: `You are in the middle of designing your website. Where should you put your hyperlinks to other pages of the website?`,
+      choices: ['Header', 'Footer', 'Content', 'Navigation'],
+      correctAnswer: 3
+    },
+    {
       type: 'lesson',
       title: 'Typography',
       content: `
       <p>Text is an important element to a website and there are ways to make them look more prominent.<br>
-      Selecting the right font and color for your text can make or break your website.
+      Selecting the right font and color for your text can make or break your website. So here's how to customize that.
       <ul>
-        <li>Header</li>
-        <li>Navigation menu</li>
-        <li>Main content</li>
-        <li>Content</li>
-        <li>Footer</li>
+        There are multiple properties for font:
+        <li>font-family: specifies the font type of the text.
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-family:</span>&nbsp;<span class="keyword">"Times New Roman", Times, serif</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        There are five generic font familes:
+          <ul>
+            <li>Serif</li>
+            <li>Sans-serif</li>
+            <li>Monospace</li>
+            <li>Cursive</li>
+            <li>Fantasy</li>
+          </ul>
+          Note: Font names that have more than one word must be put inside "" (double quotes).
+          <li>Fallback fonts: Not all fonts are installed in all browsers. Which is why it's good to have one or more fallback fonts.<br>
+          In the above example, the fallback fonts are Times and serif. Times New Roman is the font that will be shown first if it's available.</li>
       </ul>
-      <div class="img"> <img src="../assets/website_layout.png" alt="Website layout"> </div>
       </p>
       `
     },
     {
-        type: 'question',
-        question: '4) Which tag is used to create a link?',
-        choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
-        correctAnswer: 3
+      type: 'question',
+      question: `What would happen when this code is run?
+      <div class="code">
+        <p>
+            .h1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+            <span class="comment">/*margin: 20px*/</span>
+            <span class="tag">font-family:</span>&nbsp;<span class="keyword">Helvetica</span><span class="angle-brackets">;</span><br>
+            <span class="tag">border:</span>&nbsp;<span class="keyword">20px blue</span><span class="angle-brackets">;</span><br>
+            <span class="angle-brackets">}</span>
+        </p>
+      </div>`,
+      choices: ['h1 gains a blue border', 'h1 has a margin of 20 pixels', 'nothing', 'h1 has the serif font'],
+      correctAnswer: 0
     },
     {
-        type: 'lesson',
-        title: 'Working with Images in HTML',
-        content: `
-        <p>Now lets learn how to add images to your webpage!
-            <ul>
-                <li>You can use the &ltimg&gt tag to insert images into your webpage.</li>
-                <li>The &ltimg&gt tag is self-closing, which means it doesn’t need a separate closing tag.</li>
-                <li>You need to use the src attribute to specify the path to the image file and the alt attribute for alternative text.</li>
-                <div class="code">
-                    <p>
-                        <span class="angle-brackets">&lt;</span><span class="tag">img</span>
-                        <span class="attribute">src</span>=<span class="string">"path/to/your/image.jpg"</span>
-                        <span class="attribute">alt</span>=<span class="string">"funny cat meme"</span>
-                        <span class="angle-brackets">&gt;</span>
-                    </p>
-                </div>
-            </ul>
-        </p>
-        <div class="codeimg"> <img src="../assets/code3.png" alt="Web Development"> </div>
-        `
+      type: 'lesson',
+      title: 'Typography',
+      content: `
+      <p>
+      <ul>
+        <li>font-size: this property is used to specify the size of the text.</li>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-size:</span>&nbsp;<span class="keyword">40px</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        <li>font-style: this property is mostly used to specify italic text. This property have three values:</li>
+        <ul>
+          <li>normal</li>
+          <li>italic</li>
+          <li>oblique</li>
+        </ul>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-style:</span>&nbsp;<span class="keyword">italic</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+      </ul>
+      </p>
+      `
+    },
+    {
+      type: 'lesson',
+      title: 'Typography',
+      content: `
+      <p>
+      <ul>
+        <li>font-weight: this property sets how thick or thin characters in text should be displayed. There are four types of values:</li>
+        <ul>
+          <li>keyword values</li>
+          <li>numeric values</li>
+          <li>Keyword values relative to the parent</li>
+          <li>global values</li>
+        </ul>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-weight:</span>&nbsp;<span class="keyword">bold</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+        <li>font-variant: this property specifies whether or not a text should be displayed in a small-caps font.</li>
+        <div class="code">
+            <p>
+                .p1&nbsp;<span class="angle-brackets">{</span><br>&nbsp;
+                <span class="tag"font-variant:</span>&nbsp;<span class="keyword">small-caps</span><span class="angle-brackets">;</span><br>&nbsp;
+                <span class="angle-brackets">}</span>
+            </p>
+        </div>
+      </ul>
+      The color of the text is determined by the color property discussed previously.
+      </p>
+      `
+    },
+    {
+      type: 'question',
+      question: `Why is it important to include fallback fonts in your CSS when specifying a font-family?`,
+      choices: ['To improve the performance of the website by reducing the loading time of fonts.', 'To enable the browser to apply text-transform properties more effectively', 'To ensure that the text remains legible and visually appealing even if the preferred font fails to load.', 'To prevent the browser from using any default styles for the text.'],
+      correctAnswer: 3
     },
     // {
     //     type: 'lesson',
@@ -412,17 +489,19 @@ const lessons = [
     //     <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
     //     <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
     //     `
-    // },
+    // }, 
     {
         type: 'connect-the-dots',
-        question: 'Match the HTML tags with their functions.',
+        question: `Match selectors to their values 
+        <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
         pairs: [
-            { left: '&lt;h1&gt;', right: 'Defines the largest heading' },
-            { left: '&lt;p&gt;', right: 'Defines a paragraph' },
-            { left: '&lt;a&gt;', right: 'Creates a hyperlink' },
-            { left: '&lt;img&gt;', right: 'Inserts an image' }
+            { left: '.p {}', right: 'color: red' },
+            { left: '.example-class {}', right: 'color: green; font-weight: bold;' },
+            { left: '#example-id {}', right: 'border: 2px solid black; font-weight: bold;' },
+            { left: 'a[title="attribute selector"] {}', right: 'text-align: center' },
+            { left: 'div.example-class {}', right: 'font-size: larger; text-decoration: none' }
         ],
-        correctPairs: [0, 1, 2, 3]
+        correctPairs: [3, 1, 0, 4, 2]
     },
     {
         type: 'lesson',
