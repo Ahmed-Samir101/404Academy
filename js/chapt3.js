@@ -290,6 +290,12 @@ const lessons = [
         `
     },
     {
+      type: 'question',
+      question: '4) Which tag is used to create a link?',
+      choices: ['&ltlink&gt', '&lth1&gt', '&ltp&gt', '&lta&gt'],
+      correctAnswer: 3
+  },
+    {
         type: 'lesson',
         title: 'Box model',
         content: `
@@ -451,6 +457,7 @@ const lessons = [
             </p>
         </div>
       </ul>
+      The color of the text is determined by the color property discussed previously.
       </p>
       `
     },
@@ -470,14 +477,16 @@ const lessons = [
     // },
     {
         type: 'connect-the-dots',
-        question: 'Match the HTML tags with their functions.',
+        question: `Match selectors to their values
+        <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
         pairs: [
-            { left: '&lt;h1&gt;', right: 'Defines the largest heading' },
-            { left: '&lt;p&gt;', right: 'Defines a paragraph' },
-            { left: '&lt;a&gt;', right: 'Creates a hyperlink' },
-            { left: '&lt;img&gt;', right: 'Inserts an image' }
+            { left: '.p {}', right: 'color: red' },
+            { left: '.example-class {}', right: 'color: green; font-weight: bold;' },
+            { left: '#example-id {}', right: 'border: 2px solid black; font-weight: bold;' },
+            { left: 'a[title="attribute selector"] {}', right: 'text-align: center' },
+            { left: 'div.example-class {}', right: 'font-size: larger; text-decoration: none' }
         ],
-        correctPairs: [0, 1, 2, 3]
+        correctPairs: [3, 1, 0, 4, 2]
     },
     {
         type: 'lesson',
