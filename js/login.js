@@ -30,6 +30,7 @@ window.onload = () => {
     });
 
     // Function to register a new user
+    // Function to register a new user
     function register(name, email, password) {
         const users = JSON.parse(localStorage.getItem('users')) || [];
         // Check if the email is already registered
@@ -37,7 +38,7 @@ window.onload = () => {
             alert('Email is already registered. Please log in.');
             return;
         }
-        users.push({ name, email, password });
+        users.push({ name, email, password, exp: 0 }); // Add exp with a default value of 0
         localStorage.setItem('users', JSON.stringify(users));
         alert('Registration successful! Please log in.');
     }
