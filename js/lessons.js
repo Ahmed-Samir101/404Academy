@@ -146,24 +146,25 @@ function loadContent() {
 function verifyArrangeOrder() {
     const items = document.querySelectorAll('.sortable-list .item');
     let correctOrder = true;
+    const loggedInUser = localStorage.getItem('loggedInUser');
 
     items.forEach((item, index) => {
         const expectedName = lessons[currentIndex].correctOrder[index];
         const actualName = item.querySelector('.details span').textContent;
 
         if (expectedName !== actualName) {
-            console.log(expectedName)
-            console.log(actualName)
             correctOrder = false;
         }
     });
 
     if (correctOrder) {
         showPopupImage(correctImage);
-        document.getElementById('next').disabled = false; // Enable "Next" button
+        document.getElementById('next').disabled = false;
+
+        incrementEXP(loggedInUser); // Increment EXP
     } else {
         showPopupImage(incorrectImage);
-        document.getElementById('next').disabled = true; // Keep "Next" button disabled
+        document.getElementById('next').disabled = true;
     }
 }
 
@@ -293,18 +294,59 @@ function resetConnections() {
 // Verify if the connections are correct
 function verifyAnswer(selectedIndex, correctIndex) {
     const choices = document.querySelectorAll('.choice');
+    const loggedInUser = localStorage.getItem('loggedInUser');
 
     if (selectedIndex === correctIndex) {
         choices[selectedIndex].style.backgroundColor = '#67d0ba';
         showPopupImage(correctImage);
         correctAnswerSelected = true;
-        document.getElementById('next').disabled = false; // Enable the Next button
+        document.getElementById('next').disabled = false;
+
+        incrementEXP(loggedInUser); // Increment EXP
     } else {
         choices[selectedIndex].style.backgroundColor = '#ea5d64';
         showPopupImage(incorrectImage);
         correctAnswerSelected = false;
     }
 }
+
+// Function to increment EXP for a logged-in user
+function incrementEXP(loggedInUser) {
+    let exp;
+    if (loggedInUser) {
+        // For logged-in users
+        exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
+        exp += 1;
+        localStorage.setItem(`userExp_${loggedInUser}`, exp);
+    } else {
+        // For non-logged-in users
+        exp = parseInt(localStorage.getItem('guestExp')) || 0;
+        exp += 1;
+        localStorage.setItem('guestExp', exp);
+    }
+
+    displayEXP(exp); // Update the display with the new EXP
+}
+
+function displayEXP(exp) {
+    const expDisplayElement = document.getElementById('expDisplay');
+    if (expDisplayElement) {
+        expDisplayElement.textContent = `EXP: ${exp}`;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    let exp;
+
+    if (loggedInUser) {
+        exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
+    } else {
+        exp = parseInt(localStorage.getItem('guestExp')) || 0;
+    }
+
+    displayEXP(exp); // Display the EXP on page load
+});
 
 // document.getElementById('resetButton').addEventListener('click', resetConnections);
 // document.getElementById('verifyButton').addEventListener('click', verifyConnections);
