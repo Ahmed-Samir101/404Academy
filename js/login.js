@@ -30,8 +30,12 @@ window.onload = () => {
     });
 
     // Function to register a new user
-    // Function to register a new user
     function register(name, email, password) {
+        if (!name || !email || !password) {  // Check for empty inputs
+            alert('Please fill in all fields.');
+            return;
+        }
+
         const users = JSON.parse(localStorage.getItem('users')) || [];
         // Check if the email is already registered
         if (users.some(user => user.email === email)) {
@@ -45,6 +49,11 @@ window.onload = () => {
 
     // Function to log in a user
     function login(email, password) {
+        if (!email || !password) {  // Check for empty inputs
+            alert('Please fill in all fields.');
+            return;
+        }
+
         const users = JSON.parse(localStorage.getItem('users')) || [];
         const user = users.find(user => user.email === email && user.password === password);
     
