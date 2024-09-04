@@ -32,12 +32,13 @@ function verifyConnections() {
     if (isCorrect && connections.length === lessons[currentIndex].pairs.length) {
         showPopupImage(correctImage);
         correctAnswerSelected = true;
-        document.getElementById('next').disabled = false;
     } else {
         showPopupImage(incorrectImage);
         correctAnswerSelected = false;
     }
+    updateNavigation(); // Update navigation to reflect the current state
 }
+
 
 
 function loadContent() {
@@ -359,11 +360,15 @@ function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
     if (lessons[currentIndex].type === 'question' || lessons[currentIndex].type === 'arrange') {
         document.getElementById('next').disabled = !correctAnswerSelected;
+    } else if (lessons[currentIndex].type === 'connect-the-dots') {
+        // Ensure 'next' is disabled initially or based on connection verification
+        document.getElementById('next').disabled = !correctAnswerSelected;
     } else {
         document.getElementById('next').disabled = false;
     }
     updateProgressBar(); // Update the progress bar when navigation buttons are updated
 }
+
 
 function updateProgressBar() {
     const progress = document.getElementById('progress');

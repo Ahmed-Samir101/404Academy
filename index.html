@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../404_Academy/css/HomeStyle.css" />
-    <link rel="stylesheet" href="../404_Academy/css/navbar.css" />
+    <link rel="stylesheet" href="./css/HomeStyle.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
     <title>404 Academy</title>
 </head>
 <body>
@@ -13,26 +13,26 @@
         <div class="navbar">
             <div class="con">
                 <div class="logo">
-                    <img src="../404_Academy/assets/logo.png" alt="Logo">
+                    <img src="./assets/logo.png" alt="Logo">
                 </div>
                 <!-- I want them to stick together -->
                 <div class="nav-items">
-                    <a href="../404_Academy/pages/learn.html">
-                        <img src="../404_Academy/assets/nav1.png" alt="Image 1">
+                    <a href="./pages/learn.html">
+                        <img src="./assets/nav1.png" alt="Image 1">
                     </a>
-                    <a href="../404_Academy/pages/quizzes.html">
-                        <img src="../404_Academy/assets/nav2.png" alt="Image 2">
+                    <a href="./pages/quizzes.html">
+                        <img src="./assets/nav2.png" alt="Image 2">
                     </a>
-                    <a href="404_Academy/pages/download.html">
-                        <img src="../404_Academy/assets/nav3.png" alt="Image 3">
+                    <a href="./pages/download.html">
+                        <img src="./assets/nav3.png" alt="Image 3">
                     </a>
-                    <a href="../404_Academy/pages/about.html">
-                        <img src="../404_Academy/assets/nav4.png" alt="Image 4">
+                    <a href="./pages/about.html">
+                        <img src="./assets/nav4.png" alt="Image 4">
                     </a>
                 </div>                
                 <div class="login-btn">
-                    <a href="../404_Academy/pages/login.html">
-                        <img id="loginImage" src="../404_Academy/assets/log-in.png" alt="Log In">
+                    <a href="./pages/login.html">
+                        <img id="loginImage" src="./assets/log-in.png" alt="Log In">
                     </a>
                     <h2 id="userName" style="display: none;"></h2>
                     <button id="logoutBtn" style="display: none;">Log Out</button>
@@ -41,12 +41,12 @@
         </div>
 
         <div class="nyanCat">
-            <img src="../404_Academy/assets/nyan-cat.gif">
+            <img src="./assets/nyan-cat.gif">
         </div>
 
         <div class="center-btn">
-            <a href="../404_Academy/pages/learn.html">
-                <img src="../404_Academy/assets/play-now.png">
+            <a href="./pages/learn.html">
+                <img src="./assets/play-now.png">
             </a>
             </div>
 
@@ -54,9 +54,9 @@
             
             <!-- Image Group as Content -->
             <div class="image-container">
-                <img src="../404_Academy/assets/bush1.png" alt="Image 1">
-                <img src="../404_Academy/assets/bush2.png" alt="Image 2">
-                <img src="../404_Academy/assets/bush3.png" alt="Image 3">
+                <img src="./assets/bush1.png" alt="Image 1">
+                <img src="./assets/bush2.png" alt="Image 2">
+                <img src="./assets/bush3.png" alt="Image 3">
             </div>
             
         </div>
@@ -79,7 +79,7 @@
             // Log out functionality
             document.getElementById('logoutBtn').addEventListener('click', function() {
                 localStorage.removeItem('loggedInUser'); // Clear the logged-in user from local storage
-                window.location.href = '../404_Academy/pages/login.html'; // Redirect to the login page
+                window.location.href = './pages/login.html'; // Redirect to the login page
             });
         });
     </script>
