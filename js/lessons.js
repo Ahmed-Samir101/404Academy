@@ -22,23 +22,55 @@ function updateSlides() {
 
 function verifyConnections() {
     let isCorrect = true;
-    connections.forEach((connection, index) => {
-        const correctPair = lessons[currentIndex].pairs[index];
-        if (correctPair.left !== connection.left || correctPair.right !== connection.right) {
-            isCorrect = false;
-        }
-    });
 
-    if (isCorrect && connections.length === lessons[currentIndex].pairs.length) {
+    console.log("User connections:", connections);
+    console.log("Correct pairs:", lessons[currentIndex].pairs);
+
+    // Ensure the number of connections made is equal to the number of correct pairs
+    if (connections.length !== lessons[currentIndex].correctPairs.length) {
+        console.log("Mismatch in number of connections.");
+        isCorrect = false;
+    } else {
+        // Check each connection against the correct pairs
+        connections.forEach((connection, index) => {
+            const matchFound = lessons[currentIndex].pairs.some(pair => {
+                const leftTrimmed = pair.left.trim();
+                const rightTrimmed = pair.right.trim();
+                const connectionLeftTrimmed = connection.left.trim();
+                const connectionRightTrimmed = connection.right.trim();
+                
+                // Convert HTML entities to characters
+                const leftDecoded = decodeHTML(leftTrimmed);
+                const connectionLeftDecoded = decodeHTML(connectionLeftTrimmed);
+
+                return leftDecoded === connectionLeftDecoded && rightTrimmed === connectionRightTrimmed;
+            });
+            console.log(`Connection ${index + 1}:`, connection, "Match found:", matchFound);
+            if (!matchFound) {
+                isCorrect = false;
+            }
+        });
+    }
+
+    if (isCorrect) {
+        console.log("All connections are correct.");
         showPopupImage(correctImage);
         correctAnswerSelected = true;
+        document.getElementById('next').disabled = false;
     } else {
+        console.log("Some connections are incorrect.");
         showPopupImage(incorrectImage);
         correctAnswerSelected = false;
+        document.getElementById('next').disabled = true; // Ensure "Next" button is disabled if the answer is incorrect
     }
-    updateNavigation(); // Update navigation to reflect the current state
 }
 
+// Function to decode HTML entities
+function decodeHTML(html) {
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}
 
 
 function loadContent() {
