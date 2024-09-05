@@ -175,6 +175,17 @@ function loadContent() {
         document.getElementById('verifyArrangeButton').addEventListener('click', function() {
             verifyArrangeOrder();
         });
+    } else if (currentItem.type === 'checkbox') {
+        contentDiv.innerHTML = `
+            <h2>${currentItem.question}</h2>
+            ${currentItem.content}
+            <div class="controls">
+                <button id="verifyCheckboxButton">Verify</button>
+            </div>
+        `;
+
+        document.getElementById('next').disabled = true;
+        document.getElementById('verifyCheckboxButton').addEventListener('click', verifyCheckboxAnswer);
     }
     updateNavigation();
     updateSlides();
@@ -247,6 +258,34 @@ function setupSortableList() {
     function dragEnd(e) {
         this.classList.remove('hidden');
         draggedItem = null;
+    }
+}
+
+function verifyCheckboxAnswer() {
+    const checkboxes = document.querySelectorAll('#checkbox-question input[type="checkbox"]');
+    const selectedValues = Array.from(checkboxes)
+        .filter(checkbox => checkbox.checked)
+        .map(checkbox => checkbox.value);
+
+    const correctAnswers = lessons[currentIndex].correctAnswers;
+
+    // Check if selected values match correct answers
+    const isCorrect = selectedValues.length === correctAnswers.length &&
+        selectedValues.every(value => correctAnswers.includes(value)) &&
+        correctAnswers.every(value => selectedValues.includes(value));
+
+    if (isCorrect) {
+        console.log("Checkbox answers are correct.");
+        showPopupImage(correctImage);
+        correctAnswerSelected = true;
+        document.getElementById('next').disabled = false;
+    } else {
+        console.log("Checkbox answers are incorrect.");
+        console.log(correctAnswers)
+        console.log(selectedValues)
+        showPopupImage(incorrectImage);
+        correctAnswerSelected = false;
+        document.getElementById('next').disabled = true;
     }
 }
 
@@ -394,7 +433,7 @@ setupDotConnection();
 
 function updateNavigation() {
     document.getElementById('back').disabled = currentIndex === 0;
-    if (lessons[currentIndex].type === 'question' || lessons[currentIndex].type === 'arrange') {
+    if (lessons[currentIndex].type === 'question' || lessons[currentIndex].type === 'arrange' ||lessons[currentIndex].type === 'checkbox') {
         document.getElementById('next').disabled = !correctAnswerSelected;
     } else if (lessons[currentIndex].type === 'connect-the-dots') {
         // Ensure 'next' is disabled initially or based on connection verification

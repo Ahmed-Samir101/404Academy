@@ -1,6 +1,11 @@
+html {
+    min-width: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
+    min-width: 100%;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background-color: #f8d9e3;
     background-image: url('../assets/quizBG.png');
@@ -41,6 +46,9 @@ h1#title {
 }
 
 .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 0 auto;
     padding: 40px;
     max-width: 800px;
@@ -419,3 +427,29 @@ a {
         font-size: 1rem;
     }
 }
+
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two checkboxes per row */
+    gap: 45px; /* Increase space between checkboxes */
+    margin-top: 10px;
+  }
+  
+  .checkbox-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(2); /* Increase the size of the checkboxes */
+    cursor: pointer; /* Add a pointer cursor for better UX */
+  }
+  
+  label {
+    font-size: 30px; /* Increase the font size of the labels */
+    color: #333;
+    cursor: pointer; /* Make the label clickable */
+  }
+  
+  
