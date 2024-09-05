@@ -1,5 +1,5 @@
 
-let currentIndex = 0;
+let currentIndex = 11;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -181,13 +181,13 @@ const lessons = [
         type: 'connect-the-dots',
         question: `8) Match the JavaScript concepts to their descriptions.`,
         pairs: [
-            { left: 'Variable', right: 'Stores data' },
-            { left: 'Function', right: 'Performs a specific task' },
-            { left: 'Loop', right: 'Repeats code execution' },
+            { left: 'Variable', right: 'Performs a specific task' },
+            { left: 'Function', right: 'Stores data' },
+            { left: 'Loop', right: 'Holds multiple values' },
             { left: 'Condition', right: 'Executes code based on a condition' },
-            { left: 'Array', right: 'Holds multiple values' }
+            { left: 'Array', right: 'Repeats code execution' }
         ],
-        correctPairs: [0, 1, 2, 3, 4]
+        correctPairs: [1, 0, 4, 3, 2]
     },
     {
         type: 'lesson',
