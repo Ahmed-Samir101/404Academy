@@ -4,6 +4,14 @@ const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
 
 const lessons = [
+  {
+    type: 'lesson',
+    title: 'You made it!',
+    content: `
+        <p>What is <b style="color:blue;">JavaScript</b>? JavaScript is a versatile programming language primarily used for creating dynamic and interactive effects on web pages. It allows you to add logic, manipulate the DOM, and handle events.</p>
+        <div class="img"><img src="../assets/js.png" alt="JavaScript"></div>
+    `
+},
     {
         type: 'arrange',
         question: '1) Arrange the following HTML elements to create a basic webpage structure:',
@@ -63,7 +71,7 @@ const lessons = [
       correctAnswer: 2
   },
     { type: 'checkbox',
-        question: ' 3) Select the CSS properties needed to style a button',
+        question: ' 3) Select the CSS properties needed to style the button',
         content: `
           <div id="checkbox-question" class="checkbox-container">
             <div class="checkbox-item">
@@ -93,7 +101,7 @@ const lessons = [
       },
       {
         type: 'arrange',
-        question: '3) Arrange the following HTML elements to create a basic webpage structure:',
+        question: '3) Arrange the following HTML elements to create the webpage you see',
         content: `
             <ul class="sortable-list">
                 <li class="item" draggable="true">
@@ -145,7 +153,7 @@ const lessons = [
         ]
     },
     { type: 'checkbox',
-    question: ' 4) Select the CSS properties needed to style a button',
+    question: ' 4) Now we want to center everything in the "content" div',
     content: `
       <div id="checkbox-question" class="checkbox-container">
         <div class="checkbox-item">
@@ -173,8 +181,9 @@ const lessons = [
         'align-items: center;'
     ]
   },
-  { type: 'checkbox',
-  question: ' 5) Now let\'s center the content div in the middle',
+  { 
+    type: 'checkbox',
+   question: ' 5) The image is too big! Let\'s make it a bit smaller (squared) and round it a bit',
   content: `
     <div id="checkbox-question" class="checkbox-container">
       <div class="checkbox-item">
@@ -202,4 +211,16 @@ const lessons = [
       'border-radius: 50%;',
   ]
 },
+{
+  type: 'lesson',
+  title: 'Press the button!!!',
+  content: `
+      <div class="next-chapt">
+      <a href="congrats.html">
+          <button class="next-chapt">Press Me</button>
+      </a>
+      </div>
+  <div class="img"> <img src="../assets/happy-clapping.gif" alt="yooooooooooo"> </div>
+  `
+}
 ];
