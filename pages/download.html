@@ -3,17 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="download.css">
+    <link rel="stylesheet" href="../css/download.css">
     <title>Download Page</title>
 </head>
 <body>
+
+    <!-- Logo linking to homepage -->
+    <a href="../index.html" class="logo">
+        <img src="../assets/back.png" alt="Logo">
+    </a>
+
     <div class="container">
-        <h1>Download Your File</h1>
-        <p>Click the button below to download your file:</p>
-        <a href="../assets/Beginners_Guide_to_HTML.pdf" download class="download-button">Download File</a>
+        <h1>Download Your Files</h1>
+        <p>Select a file to download:</p>
+
+        <!-- Grid of square download buttons -->
+        <div class="download-grid">
+            <a href="../assets/Beginners_Guide_to_HTML.pdf" download class="download-button">
+                <span>HTML</span>
+            </a>
+            <a href="../assets/Advanced_CSS_Techniques.pdf" download class="download-button">
+                <span>CSS</span>
+            </a>
+            <a href="../assets/JavaScript_Basics.pdf" download class="download-button">
+                <span>JavaScript</span>
+            </a>
+            <a href="../assets/Web_Development_Tools.pdf" download class="download-button">
+                <span>Tools</span>
+            </a>
+        </div>
+
         <p id="status"></p>
     </div>
-
-    <script src="download.js"></script>
 </body>
 </html>

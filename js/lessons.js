@@ -1,8 +1,11 @@
 // vars
-
-
 const correctImage = document.getElementById('correct-image');
 const incorrectImage = document.getElementById('incorrect-image');
+const imagePaths = [
+    "../assets/spongebob-thinking.gif",
+    "../assets/math1.gif",
+    "../assets/math2.gif",
+];
 
 
 function updateNavigation() {
@@ -78,6 +81,7 @@ function loadContent() {
     contentDiv.innerHTML = '';
 
     const currentItem = lessons[currentIndex];
+    const randomImagePath = imagePaths[Math.floor(Math.random() * imagePaths.length)];
 
     if (currentItem.type === 'lesson') {
         contentDiv.innerHTML = `
@@ -94,7 +98,7 @@ function loadContent() {
         contentDiv.innerHTML = `
             <p id="question">${currentItem.question}</p>
             <div class="img">
-                <img style="margin-bottom: 25px;" src="../assets/spongebob-thinking.gif">
+                <img style="margin-bottom: 25px;" src="${randomImagePath}">
             </div>
             <div class="choices-grid">
                 ${choicesHTML}

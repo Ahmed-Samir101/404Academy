@@ -213,13 +213,33 @@ const lessons = [
         type: 'lesson',
         title: 'DOM Manipulation',
         content: `
-            <p>JavaScript allows you to manipulate the Document Object Model (DOM) to dynamically update the content of a webpage.</p>
-            <div class="code">
-                <p>
-                    document.getElementById('myDiv').innerHTML = 'New content!';<br>
-                    document.querySelector('.myClass').style.color = 'blue';
-                </p>
-            </div>
+        <p>JavaScript allows you to manipulate the Document Object Model (DOM) to dynamically update the content of a webpage. This is useful for creating interactive and responsive web applications.</p>
+
+        <p>For example, you can change the text within an HTML element or modify its style based on user actions or other events.</p>
+        
+        <div class="code">
+            <p>
+                <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'myDiv'</span><span class="brackets">)</span><span class="property">.innerHTML</span> <span class="operator">=</span> <span class="string">'New content!'</span><span class="punctuation">;</span><br><br>
+        
+                <span class="function">document</span><span class="property">.querySelector</span><span class="brackets">(</span><span class="string">'.myClass'</span><span class="brackets">)</span><span class="property">.style</span><span class="property">.color</span> <span class="operator">=</span> <span class="string">'blue'</span><span class="punctuation">;</span><br><br>
+        
+                <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'myDiv'</span><span class="brackets">)</span><span class="property">.style</span><span class="property">.display</span> <span class="operator">=</span> <span class="string">'none'</span><span class="punctuation">;</span><br><br>
+        
+                <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'myDiv'</span><span class="brackets">)</span><span class="property">.style</span><span class="property">.display</span> <span class="operator">=</span> <span class="string">'block'</span><span class="punctuation">;</span><br><br>
+        
+                <span class="function">document</span><span class="property">.querySelector</span><span class="brackets">(</span><span class="string">'.myClass'</span><span class="brackets">)</span><span class="property">.classList</span><span class="property">.add</span><span class="brackets">(</span><span class="string">'highlight'</span><span class="brackets">)</span><span class="punctuation">;</span>
+            </p>
+        </div>
+        
+        <p>In this example:</p>
+        <ul>
+            <li><code>document.getElementById('myDiv')</code> selects an element by its ID.</li>
+            <li><code>document.querySelector('.myClass')</code> selects the first element with the class <code>myClass</code>.</li>
+            <li><code>innerHTML</code> updates the HTML content inside an element.</li>
+            <li><code>style</code> modifies the inline CSS styles of an element.</li>
+            <li><code>classList.add('highlight')</code> adds a CSS class to an element.</li>
+        </ul>
+        
         `
     },
     {
