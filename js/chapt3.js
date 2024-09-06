@@ -478,8 +478,8 @@ const lessons = [
     },
     {
       type: 'question',
-      question: `Why is it important to include fallback fonts in your CSS when specifying a font-family?`,
-      choices: ['To improve the performance of the website by reducing the loading time of fonts.', 'To enable the browser to apply text-transform properties more effectively', 'To ensure that the text remains legible and visually appealing even if the preferred font fails to load.', 'To prevent the browser from using any default styles for the text.'],
+      question: `How to make a text in italic using CSS?`,
+      choices: ['font-style: bold;', 'text-decoration: italic;', 'font-weight: italic;', 'font-style: italic;'],
       correctAnswer: 3
     },
     // {
