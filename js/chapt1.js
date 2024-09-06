@@ -72,8 +72,8 @@ const lessons = [
     },
     {
         type: 'question',
-        question: 'What is the main function of a web browser?',
-        choices: ['To create HTML files', 'To guide users through the internet', 'To connect computers to the internet', 'To store website data'],
+        question: 'At its simplest, what is a web page?',
+        choices: ['A collection of email addresses stored on the internet', 'A document that contains text, images, and links, and is displayed in a web browser', 'A program that runs on a server to manage data', 'A file used for sending messages over the internet'],
         correctAnswer: 1
     },
     // {
