@@ -40,6 +40,7 @@ window.onload = () => {
         // Check if the name is already registered
         if (users.some(user => user.name === name)) {
             alert('Name is already registered. Please log in.');
+            loginBtn.click();
             return;
         }
         users.push({ name, password, exp: 0 }); // Add exp with a default value of 0
@@ -63,7 +64,7 @@ window.onload = () => {
         if (user) {
             alert('Login successful!');
             localStorage.setItem('loggedInUser', user.name); // Store the logged-in user's name
-            window.location.href = 'index.html'; // Redirect to the home page
+            window.location.href = '../index.html'; // Redirect to the home page
         } else {
             alert('Invalid name or password.');
         }
@@ -86,16 +87,16 @@ window.onload = () => {
     });
 
     // Event listener for Enter key press on inputs
-    document.querySelectorAll('.input[type="text"], .input[type="password"]').forEach(input => {
-        input.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                if (input.closest('.signup')) {
-                    signupBtn.click();
-                } else if (input.closest('.login')) {
-                    loginBtn.click();
-                }
-            }
-        });
-    });
+//     document.querySelectorAll('.input[type="text"], .input[type="password"]').forEach(input => {
+//         input.addEventListener('keydown', (e) => {
+//             if (e.key === 'Enter') {
+//                 if (input.closest('.signup')) {
+//                     signupBtn.click();
+//                 } else if (input.closest('.login')) {
+//                     loginBtn.click();
+//                 }
+//             }
+//         });
+//     });
 
 }
