@@ -1,5 +1,5 @@
 
-let currentIndex = 0;
+let currentIndex = 12;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -27,11 +27,12 @@ const lessons = [
             <p>In JavaScript, variables are used to store data values. You can declare a variable using <code>let</code>, <code>const</code>, or <code>var</code>:</p>
             <div class="code">
                 <p>
-                    let age = 25;<br>
-                    const name = 'John';<br>
-                    var isStudent = true;
+                    <span class="keyword">let</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">25</span><span class="punctuation">;</span><br>
+                    <span class="keyword">const</span> <span class="variable">name</span> <span class="operator">=</span> <span class="string">'John'</span><span class="punctuation">;</span><br>
+                    <span class="keyword">var</span> <span class="variable">isStudent</span> <span class="operator">=</span> <span class="boolean">true</span><span class="punctuation">;</span>
                 </p>
             </div>
+
             <p>JavaScript supports various data types, such as numbers, strings, and booleans.</p>
         `
     },
@@ -48,12 +49,13 @@ const lessons = [
             <p>Functions are blocks of code designed to perform a specific task. They can take parameters and return values.</p>
             <div class="code">
                 <p>
-                    function greet(name) {<br>&nbsp;&nbsp;
-                    return 'Hello ' + name;<br>
-                    }<br><br>
-                    greet('Alice'); // Returns 'Hello Alice'
+                    <span class="keyword">function</span> <span class="function-name">greet</span><span class="brackets">(</span><span class="variable">name</span><span class="brackets">)</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+                    <span class="keyword">return</span> <span class="string">'Hello '</span> <span class="operator">+</span> <span class="variable">name</span><span class="punctuation">;</span><br>
+                    <span class="brackets">}</span><br><br>
+                    <span class="function-name">greet</span><span class="brackets">(</span><span class="string">'Alice'</span><span class="brackets">)</span><span class="punctuation">;</span> <span class="comment">// Returns 'Hello Alice'</span>
                 </p>
             </div>
+
         `
     },
     {
@@ -75,12 +77,13 @@ const lessons = [
             </ul>
             <div class="code">
                 <p>
-                    let sum = 10 + 5;<br>
-                    let difference = 10 - 5;<br>
-                    let product = 10 * 5;<br>
-                    let quotient = 10 / 5;
+                    <span class="keyword">let</span> <span class="variable">sum</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">+</span> <span class="number">5</span><span class="punctuation">;</span><br>
+                    <span class="keyword">let</span> <span class="variable">difference</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">-</span> <span class="number">5</span><span class="punctuation">;</span><br>
+                    <span class="keyword">let</span> <span class="variable">product</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">*</span> <span class="number">5</span><span class="punctuation">;</span><br>
+                    <span class="keyword">let</span> <span class="variable">quotient</span> <span class="operator">=</span> <span class="number">10</span> <span class="operator">/</span> <span class="number">5</span><span class="punctuation">;</span>
                 </p>
             </div>
+
         `
     },
     {
@@ -126,15 +129,16 @@ const lessons = [
         content: `
             <p>Control structures like <code>if...else</code> statements are used to execute different blocks of code based on certain conditions.</p>
             <div class="code">
-                <p>
-                    let age = 18;<br><br>
-                    if (age >= 18) {<br>&nbsp;&nbsp;
-                    console.log('You are an adult.');<br>
-                    } else {<br>&nbsp;&nbsp;
-                    console.log('You are a minor.');<br>
-                    }
-                </p>
-            </div>
+            <p>
+                <span class="keyword">let</span> <span class="variable">age</span> <span class="operator">=</span> <span class="number">18</span><span class="punctuation">;</span><br><br>
+                
+                <span class="keyword">if</span> <span class="brackets">(</span><span class="variable">age</span> <span class="operator">&gt;=</span> <span class="number">18</span><span class="brackets">)</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+                <span class="function">console</span><span class="property">.log</span><span class="brackets">(</span><span class="string">'You are an adult.'</span><span class="brackets">)</span><span class="punctuation">;</span><br>
+                <span class="brackets">}</span> <span class="keyword">else</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+                <span class="function">console</span><span class="property">.log</span><span class="brackets">(</span><span class="string">'You are a minor.'</span><span class="brackets">)</span><span class="punctuation">;</span><br>
+                <span class="brackets">}</span>
+            </p>
+        </div>
         `
     },
     {
@@ -149,30 +153,33 @@ const lessons = [
         content: `
             <p>Loops are used to repeatedly execute a block of code. Common loops in JavaScript include <code>for</code> and <code>while</code> loops.</p>
             <div class="code">
-                <p>
-                    for (let i = 0; i < 5; i++) {<br>&nbsp;&nbsp;
-                    console.log(i);<br>
-                    }<br><br>
-                    let j = 0;<br>
-                    while (j < 5) {<br>&nbsp;&nbsp;
-                    console.log(j);<br>&nbsp;&nbsp;
-                    j++;<br>
-                    }
-                </p>
-            </div>
+    <p>
+        <span class="keyword">for</span> <span class="brackets">(</span><span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span> <span class="variable">i</span> <span class="operator">&lt;</span> <span class="number">5</span><span class="punctuation">;</span> <span class="variable">i</span><span class="operator">++</span><span class="brackets">)</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+        <span class="function">console</span><span class="property">.log</span><span class="brackets">(</span><span class="variable">i</span><span class="brackets">)</span><span class="punctuation">;</span><br>
+        <span class="brackets">}</span><br><br>
+
+        <span class="keyword">let</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span><br>
+        <span class="keyword">while</span> <span class="brackets">(</span><span class="variable">j</span> <span class="operator">&lt;</span> <span class="number">5</span><span class="brackets">)</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+        <span class="function">console</span><span class="property">.log</span><span class="brackets">(</span><span class="variable">j</span><span class="brackets">)</span><span class="punctuation">;</span><br>&nbsp;&nbsp;
+        <span class="variable">j</span><span class="operator">++</span><span class="punctuation">;</span><br>
+        <span class="brackets">}</span>
+    </p>
+</div>
+
         `
     },
     {
         type: 'question-with-code',
         question: '7) How many times will the following loop run?',
         content: `
-            <div class="code">
-                <p>
-                    for (let i = 0; i < 3; i++) {<br>&nbsp;&nbsp;
-                    console.log(i);<br>
-                    }
-                </p>
-            </div>
+        <div class="code">
+        <p>
+            <span class="keyword">for</span> <span class="brackets">(</span><span class="keyword">let</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span><span class="punctuation">;</span> <span class="variable">i</span> <span class="operator">&lt;</span> <span class="number">3</span><span class="punctuation">;</span> <span class="variable">i</span><span class="operator">++</span><span class="brackets">)</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+            <span class="function">console</span><span class="property">.log</span><span class="brackets">(</span><span class="variable">i</span><span class="brackets">)</span><span class="punctuation">;</span><br>
+            <span class="brackets">}</span>
+        </p>
+    </div>
+    
         `,
         choices: ['1', '2', '3', '4'],
         correctAnswer: 2
@@ -195,12 +202,13 @@ const lessons = [
         content: `
             <p>JavaScript can respond to user interactions by listening to events like clicks, key presses, or form submissions.</p>
             <div class="code">
-                <p>
-                    document.getElementById('myButton').addEventListener('click', function() {<br>&nbsp;&nbsp;
-                    alert('Button clicked!');<br>
-                    });
-                </p>
-            </div>
+            <p>
+                <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'myButton'</span><span class="brackets">)</span><span class="property">.addEventListener</span><span class="brackets">(</span><span class="string">'click'</span><span class="punctuation">,</span> <span class="keyword">function</span><span class="brackets">()</span> <span class="brackets">{</span><br>&nbsp;&nbsp;
+                <span class="function">alert</span><span class="brackets">(</span><span class="string">'Button clicked!'</span><span class="brackets">)</span><span class="punctuation">;</span><br>
+                <span class="brackets">}</span><span class="punctuation">)</span><span class="punctuation">;</span>
+            </p>
+        </div>
+
         `
     },
     {
@@ -246,11 +254,12 @@ const lessons = [
         type: 'question-with-code',
         question: '10) What does this code do?',
         content: `
-            <div class="code">
-                <p>
-                    document.getElementById('title').style.color = 'red';
-                </p>
-            </div>
+        <div class="code">
+        <p>
+            <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'title'</span><span class="brackets">)</span><span class="property">.style</span><span class="property">.color</span> <span class="operator">=</span> <span class="string">'red'</span><span class="punctuation">;</span>
+        </p>
+    </div>
+    
         `,
         choices: ['Changes the text of the title', 'Changes the background color of the title', 'Changes the font size of the title', 'Changes the text color of the title'],
         correctAnswer: 3
