@@ -13,11 +13,11 @@ body {
     padding: 20px;
 }
 
-.column-left, .column-right {
+/* .column-left, .column-right {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
+} */
 
 .column-left {
     flex: 2;
@@ -26,6 +26,10 @@ body {
 
 .column-right {
     flex: 1;
+}
+
+.dude {
+
 }
 
 /* Big Card Styling */

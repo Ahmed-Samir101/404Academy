@@ -404,12 +404,26 @@ function incrementEXP(loggedInUser) {
     displayEXP(exp); // Update the display with the new EXP
 }
 
-function displayEXP(exp) {
+function displayEXP(exp, maxExp) {
     const expDisplayElement = document.getElementById('expDisplay');
-    if (expDisplayElement) {
-        expDisplayElement.textContent = `EXP: ${exp}`;
+    const expTextElement = expDisplayElement.querySelector('.xp-text');
+    const expBarFillElement = expDisplayElement.querySelector('.xp-bar-fill');
+
+    if (expDisplayElement && expTextElement && expBarFillElement) {
+        expTextElement.textContent = `EXP: ${exp}`;
+        const fillPercentage = (exp / maxExp) * 100;
+        expBarFillElement.style.width = `${fillPercentage}%`;
+
+        // Animate the scale and opacity
+        expDisplayElement.style.transform = 'translateY(-50%) scale(1.2)';
+        expDisplayElement.style.opacity = '1';
+        setTimeout(() => {
+            expDisplayElement.style.transform = 'translateY(-50%) scale(1)';
+            expDisplayElement.style.opacity = '0.9';
+        }, 300);
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const loggedInUser = localStorage.getItem('loggedInUser');
