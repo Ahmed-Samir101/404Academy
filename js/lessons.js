@@ -25,31 +25,34 @@ function updateSlides() {
 
 function verifyConnections() {
     let isCorrect = true;
+    const userConnections = [...connections]; // Clone the connections array
 
     console.log("User connections:", connections);
     console.log("Correct pairs:", lessons[currentIndex].correctPairs);
 
-    if (connections.length !== lessons[currentIndex].correctPairs.length) {
+    if (userConnections.length !== lessons[currentIndex].correctPairs.length) {
         console.log("Mismatch in the number of connections.");
         isCorrect = false;
     } else {
-        connections.forEach((connection, leftIndex) => {
-            const correctRightIndex = lessons[currentIndex].correctPairs[leftIndex];
+        // Loop over each correct pair
+        lessons[currentIndex].correctPairs.forEach((correctRightIndex, leftIndex) => {
             const correctLeft = lessons[currentIndex].pairs[leftIndex].left.trim();
             const correctRight = lessons[currentIndex].pairs[correctRightIndex].right.trim();
 
-            // Trim and decode the user's connection
-            const connectionLeftTrimmed = connection.left.trim();
-            const connectionRightTrimmed = connection.right.trim();
+            // Find the matching user connection
+            const matchingConnection = userConnections.find(connection => {
+                const connectionLeftTrimmed = connection.left.trim();
+                const connectionRightTrimmed = connection.right.trim();
+                return decodeHTML(correctLeft) === decodeHTML(connectionLeftTrimmed) &&
+                       correctRight === connectionRightTrimmed;
+            });
 
-            const leftDecoded = decodeHTML(correctLeft);
-            const connectionLeftDecoded = decodeHTML(connectionLeftTrimmed);
-
-            // Check if the user's connection matches the correct pair
-            const matchFound = leftDecoded === connectionLeftDecoded && correctRight === connectionRightTrimmed;
-
-            console.log(`Connection ${leftIndex + 1}:`, connection, "Match found:", matchFound);
-            if (!matchFound) {
+            if (matchingConnection) {
+                // Remove the matched connection from the array so it won't be checked again
+                userConnections.splice(userConnections.indexOf(matchingConnection), 1);
+            } else {
+                // If no match was found, the connection is incorrect
+                console.log(`No match found for pair ${leftIndex + 1}.`);
                 isCorrect = false;
             }
         });
@@ -67,6 +70,7 @@ function verifyConnections() {
         document.getElementById('next').disabled = true;
     }
 }
+
 
 // Function to decode HTML entities
 function decodeHTML(html) {

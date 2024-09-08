@@ -1,4 +1,4 @@
-let currentIndex = 0;
+let currentIndex = 8;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
