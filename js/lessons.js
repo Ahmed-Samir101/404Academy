@@ -1,6 +1,9 @@
 // vars
 const correctImage = document.getElementById('correct-image');
 const incorrectImage = document.getElementById('incorrect-image');
+const correctSound = new Audio('../assets/correct.mp3');
+const incorrectSound = new Audio('../assets/bonk.mp3');
+
 const imagePaths = [
     "../assets/spongebob-thinking.gif",
     "../assets/math1.gif",
@@ -61,11 +64,13 @@ function verifyConnections() {
     if (isCorrect) {
         console.log("All connections are correct.");
         showPopupImage(correctImage);
+        correctSound.play();
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
     } else {
         console.log("Some connections are incorrect.");
         showPopupImage(incorrectImage);
+        incorrectSound.play();
         correctAnswerSelected = false;
         document.getElementById('next').disabled = true;
     }
@@ -211,11 +216,13 @@ function verifyArrangeOrder() {
 
     if (correctOrder) {
         showPopupImage(correctImage);
+        correctSound.play();
         document.getElementById('next').disabled = false;
 
         incrementEXP(loggedInUser); // Increment EXP
     } else {
         showPopupImage(incorrectImage);
+        incorrectSound.play();
         document.getElementById('next').disabled = true;
     }
 }
@@ -281,6 +288,7 @@ function verifyCheckboxAnswer() {
     if (isCorrect) {
         console.log("Checkbox answers are correct.");
         showPopupImage(correctImage);
+        correctSound.play();
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
     } else {
@@ -288,6 +296,7 @@ function verifyCheckboxAnswer() {
         console.log(correctAnswers)
         console.log(selectedValues)
         showPopupImage(incorrectImage);
+        incorrectSound.play();
         correctAnswerSelected = false;
         document.getElementById('next').disabled = true;
     }
@@ -384,6 +393,7 @@ function verifyAnswer(selectedIndex, correctIndex) {
 
     if (selectedIndex === correctIndex) {
         choices[selectedIndex].style.backgroundColor = '#67d0ba';
+        correctSound.play();
         showPopupImage(correctImage);
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
@@ -392,6 +402,7 @@ function verifyAnswer(selectedIndex, correctIndex) {
     } else {
         choices[selectedIndex].style.backgroundColor = '#ea5d64';
         showPopupImage(incorrectImage);
+        incorrectSound.play();
         correctAnswerSelected = false;
     }
 }
