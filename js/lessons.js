@@ -3,6 +3,7 @@ const correctImage = document.getElementById('correct-image');
 const incorrectImage = document.getElementById('incorrect-image');
 const correctSound = new Audio('../assets/correct.mp3');
 const incorrectSound = new Audio('../assets/bonk.mp3');
+const popSound = new Audio('../assets/pop.mp3');
 
 const imagePaths = [
     "../assets/spongebob-thinking.gif",
@@ -509,6 +510,7 @@ function showPopupImage(imageElement) {
 loadContent();
 
 document.getElementById('next').addEventListener('click', () => {
+    popSound.play();
     navigateSlides(1);
 });
 

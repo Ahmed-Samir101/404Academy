@@ -506,10 +506,10 @@ const lessons = [
         title: '',
         content: `
         <h1 style="color:red;text-align:center; margin-top:0;"">Fantastic work! 🎉</h1>
-        <p>Now, let's dive into the next chapter, where we'll explore CSS. You'll discover how to style and customize your website, making it truly your own. Excited? I know I am! Let's get started! 🚀</p>
+        <p>Now, let's dive into the next chapter, where we'll explore JavaScript. You'll learn the basics of <br style="color: yellow;">JS</b> and how to make your website more interactive. <br> Excited? I know I am! Let's get started! 🚀</p>
             <div class="next-chapt">
             <a href="chapt3.html">
-                <button class="next-chapt">Chapter 3</button>
+                <button class="next-chapt">Chapter 4</button>
             </a>
             </div>
         <div class="img"> <img class="shake-image" src="../assets/goodidea.png" alt="Web Development"> </div>
