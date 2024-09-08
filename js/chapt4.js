@@ -1,5 +1,5 @@
 
-let currentIndex = 12;
+let currentIndex = 0;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -275,7 +275,7 @@ const lessons = [
                 <button class="next-chapt">Web project</button>
             </a>
             </div>
-        <div class="img"> <img class="shake-image" src="../assets/under-construction.jpg" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/goodJob1.png" alt="Web Development"> </div>
         `
     }
 ];

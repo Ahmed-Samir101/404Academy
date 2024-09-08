@@ -1,4 +1,4 @@
-let currentIndex = 0;
+let currentIndex = 11;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -336,7 +336,7 @@ const lessons = [
                 <li><b>Relative:</b> an element with this position value is positioned relative to its normal position.</li>
                 <li><b>Fixed:</b> an element with this position value has the same relative position when the viewer scrolls through the web page.</li>
                 <li><b>Absolute:</b> an element with this position value in taken out of the normal document flow.</li>
-                <li><b>Sticky:</b> an element with this position value combines relative and fixed features. The element is treated as position: relative until it reaches a specified threshold, then it becomes position: fixed.</li>
+                <li><b>Sticky:</b> an element with this position value combines relative and fixed features. The element is treated as position: relative until it reaches a specified threshold, then it becomes <b style="color:orange;">position: fixed</b>.</li>
             </ul>
         </p>
         `
@@ -488,19 +488,19 @@ const lessons = [
     //     <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
     //     `
     // }, 
-    {
-        type: 'connect-the-dots',
-        question: `Match selectors to their values 
-        <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
-        pairs: [
-            { left: '.p {}', right: 'color: red' },
-            { left: '.example-class {}', right: 'color: green; font-weight: bold;' },
-            { left: '#example-id {}', right: 'border: 2px solid black; font-weight: bold;' },
-            { left: 'a[title="attribute selector"] {}', right: 'text-align: center' },
-            { left: 'div.example-class {}', right: 'font-size: larger; text-decoration: none' }
-        ],
-        correctPairs: [3, 1, 0, 4, 2]
-    },
+    // {
+    //     type: 'connect-the-dots',
+    //     question: `Match selectors to their values 
+    //     <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
+    //     pairs: [
+    //         { left: '.p {}', right: 'color: red' },
+    //         { left: '.example-class {}', right: 'color: green; font-weight: bold;' },
+    //         { left: '#example-id {}', right: 'border: 2px solid black; font-weight: bold;' },
+    //         { left: 'a[title="attribute selector"] {}', right: 'text-align: center' },
+    //         { left: 'div.example-class {}', right: 'font-size: larger; text-decoration: none' }
+    //     ],
+    //     correctPairs: [3, 1, 0, 4, 2]
+    // },
     {
         type: 'lesson',
         title: '',
@@ -512,7 +512,7 @@ const lessons = [
                 <button class="next-chapt">Chapter 3</button>
             </a>
             </div>
-        <div class="img"> <img class="shake-image" src="../assets/under-construction.jpg" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/goodidea.png" alt="Web Development"> </div>
         `
     }
 ];

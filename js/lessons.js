@@ -342,21 +342,27 @@ function drawConnection(leftItem, rightItem, color) {
     const leftRect = leftItem.getBoundingClientRect();
     const rightRect = rightItem.getBoundingClientRect();
 
+    // Calculate the start and end points of the line
     const startX = leftRect.right + window.scrollX;
-    const startY = leftRect.top + leftRect.height / 2 + window.scrollY;
+    const startY = leftRect.top + (leftRect.height / 2) + window.scrollY;
     const endX = rightRect.left + window.scrollX;
-    const endY = rightRect.top + rightRect.height / 2 + window.scrollY;
+    const endY = rightRect.top + (rightRect.height / 2) + window.scrollY;
+
+    // Adjust start and end points to account for potential differences
+    const adjustedStartX = startX + (leftRect.width / 2);
+    const adjustedEndX = endX - (rightRect.width / 2);
 
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", startX);
+    line.setAttribute("x1", adjustedStartX);
     line.setAttribute("y1", startY);
-    line.setAttribute("x2", endX);
+    line.setAttribute("x2", adjustedEndX);
     line.setAttribute("y2", endY);
     line.setAttribute("stroke", color);
     line.setAttribute("stroke-width", "2");
 
     svg.appendChild(line);
 }
+
 
 // Reset all connections and clear the SVG
 function resetConnections() {
