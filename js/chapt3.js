@@ -225,9 +225,7 @@ const lessons = [
     {
         type: 'lesson',
         title: 'Comments in CSS',
-        content: `
-            <p> What do you do when you want write a piece of text only for yourself?
-                  You write a comment! Here's how to do it in CSS.
+        content: `<p> What do you do when you want write a piece of text only for yourself?<br>You write a comment! Here's how to do it in CSS.
                   <div class="code" style="margin-bottom: 5px;">
                       <p>
                       <span class="comment">/* This is a single-line comment */</span>
@@ -293,14 +291,14 @@ const lessons = [
         type: 'lesson',
         title: 'Box model',
         content: `     
-         <p>You want your website to look well structured, right? Box models are necessary for that!
+         <p>You want your website to look well structured, right? Box models are necessary for that!<br>
+          What is a box model? CSS Box Model is a Fundamental concept in CSS that governs how elements are structured and positioned on a webpage.<br>
+          The box model is a container that includes the following properties (ordered from the innermost property):
             <ul>
-            What is a box model? CSS Box Model is a Fundamental concept in CSS that governs how elements are structured and positioned on a webpage.<br>
-            The box model is a container that includes the following properties (ordered from the innermost property):
-                <li>Content: The actual data in text, images, or other media forms can be sized using the width and height property.</li>
-                <li>Padding: Padding is used to create space around the element, inside any defined border.</li>
-                <li>Border: The border is used to cover the content & any padding, & also allows setting the style, color, and width of the border.</li>
-                <li>Margin: Margin is used to create space around the element ie., around the border area.</li>
+                <li><b>Content:</b> The actual data in text, images, or other media forms can be sized using the width and height property.</li>
+                <li><b>Padding:</b> Padding is used to create space around the element, inside any defined border.</li>
+                <li><b>Border:</b> The border is used to cover the content & any padding, & also allows setting the style, color, and width of the border.</li>
+                <li><b>Margin:</b> Margin is used to create space around the element ie., around the border area.</li>
             </ul>
             <div class="img"> <img src="../assets/box_model.png" alt="CSS box model"> </div>
         </p>
@@ -331,14 +329,14 @@ const lessons = [
         type: 'lesson',
         title: 'Positioning',
         content: `
-        <p>There will be many parts in your website, which is why it's important to be able to position them correctly.
+        <p>There will be many parts in your website, which is why it's important to be able to position them correctly.<br>
+        The position of an element is determined by the position property. There are five position values:
             <ul>
-            The position of an element is determined by the position property. There are five position values:
-                <li>Static: this is the default position value. An element with this position value will follow the flow of the file.</li>
-                <li>Relative: an element with this position value is positioned relative to its normal position.</li>
-                <li>Fixed: an element with this position value has the same relative position when the viewer scrolls through the web page.</li>
-                <li>Absolute: an element with this position value in taken out of the normal document flow.</li>
-                <li>Sticky: an element with this position value combines relative and fixed features. The element is treated as position: relative until it reaches a specified threshold, then it becomes position: fixed.</li>
+                <li><b>Static:</b> this is the default position value. An element with this position value will follow the flow of the file.</li>
+                <li><b>Relative:</b> an element with this position value is positioned relative to its normal position.</li>
+                <li><b>Fixed:</b> an element with this position value has the same relative position when the viewer scrolls through the web page.</li>
+                <li><b>Absolute:</b> an element with this position value in taken out of the normal document flow.</li>
+                <li><b>Sticky:</b> an element with this position value combines relative and fixed features. The element is treated as position: relative until it reaches a specified threshold, then it becomes position: fixed.</li>
             </ul>
         </p>
         `
@@ -350,11 +348,11 @@ const lessons = [
       <p>While you can arrange your website however you want, there are conventions.<br>
       Generally speaking there are five sections in a website:
       <ul>
-        <li>Header</li>
-        <li>Navigation menu</li>
-        <li>Main content</li>
-        <li>Content</li>
-        <li>Footer</li>
+        <li><b>Header</b></li>
+        <li><b>Navigation menu</b></li>
+        <li><b>Main content</b></li>
+        <li><b>Content</b></li>
+        <li><b>Footer</b></li>
       </ul>
       <div class="img"> <img src="../assets/website_layout.png" alt="Website layout"> </div>
       </p>
@@ -384,11 +382,11 @@ const lessons = [
         </div>
         There are five generic font familes:
           <ul>
-            <li>Serif</li>
-            <li>Sans-serif</li>
-            <li>Monospace</li>
-            <li>Cursive</li>
-            <li>Fantasy</li>
+            <li><b>Serif</b></li>
+            <li><b>Sans-serif</b></li>
+            <li><b>Monospace</b></li>
+            <li><b>Cursive</b></li>
+            <li><b>Fantasy</b></li>
           </ul>
           Note: Font names that have more than one word must be put inside "" (double quotes).
           <li>Fallback fonts: Not all fonts are installed in all browsers. Which is why it's good to have one or more fallback fonts.<br>
@@ -428,9 +426,9 @@ const lessons = [
         </div>
         <li>font-style: this property is mostly used to specify italic text. This property have three values:</li>
         <ul>
-          <li>normal</li>
-          <li>italic</li>
-          <li>oblique</li>
+          <li><b>normal</b></li>
+          <li><b>italic</b></li>
+          <li><b>oblique</b></li>
         </ul>
         <div class="code">
             <p>
