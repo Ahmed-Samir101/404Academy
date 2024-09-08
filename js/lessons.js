@@ -498,7 +498,7 @@ document.getElementById('back').addEventListener('click', () => {
 loadContent();
 
 const sortableList = document.querySelector(".sortable-list");
-const items = sortableList.querySelectorAll(".item");
+const items = document.querySelectorAll(".item");
 
 items.forEach(item => {
     item.addEventListener("dragstart", () => {
@@ -523,6 +523,25 @@ const initSortableList = (e) => {
     // Inserting the dragging item before the found sibling
     sortableList.insertBefore(draggingItem, nextSibling);
 }
+
+var animateButton = function(e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+    
+    e.target.classList.add('animate');
+    setTimeout(function(){
+      e.target.classList.remove('animate');
+    },700);
+  }
+  
+  var bubblyButtons = document.getElementsByClassName("next");
+  console.log(bubblyButtons)
+  for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
+  }
+
 
 sortableList.addEventListener("dragover", initSortableList);
 sortableList.addEventListener("dragenter", e => e.preventDefault());
