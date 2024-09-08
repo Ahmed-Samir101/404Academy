@@ -631,3 +631,24 @@ a {
     background-size: 0% 0%, 0% 0%,  0% 0%,  0% 0%,  0% 0%,  0% 0%;
     }
   }
+
+  .shake-image {
+    width: 200px; /* Adjust the size of the image */
+    height: auto;
+    animation: dance 2s infinite;
+    transition: transform 0.7s ease-in-out; /* Smooth transition for the dance */
+}
+
+@keyframes dance {
+    0% { transform: translateY(0) rotate(0deg); }
+    10% { transform: translateY(-10px) rotate(-10deg); }
+    20% { transform: translateY(-5px) rotate(10deg); }
+    30% { transform: translateY(-15px) rotate(-10deg); }
+    40% { transform: translateY(0) rotate(10deg); }
+    50% { transform: translateY(-10px) rotate(0deg); }
+    60% { transform: translateY(-5px) rotate(-10deg); }
+    70% { transform: translateY(-15px) rotate(10deg); }
+    80% { transform: translateY(0) rotate(-10deg); }
+    90% { transform: translateY(-10px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}

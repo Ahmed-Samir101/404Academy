@@ -1,4 +1,4 @@
-let currentIndex = 0;
+let currentIndex = 9;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -24,7 +24,7 @@ const lessons = [
         type: 'lesson',
         title: 'A Blast from the Past: How the Internet Was Born',
         content: `
-        <p>Imagine computers in the 1960s as gigantic, pricey machines that couldn’t be moved—like having a dinosaur as a pet! To solve the problem of accessing these ancient beasts remotely and getting them to talk to each other, brilliant minds came up with <b>ARPANET</b>, the internet’s super-cool grandparent. It was the first step toward connecting computers from different locations into a magical network.<br>
+        <p>Imagine computers in the <b style="color:#4290f5;">1960s</b> as gigantic, pricey machines that couldn’t be moved—like having a dinosaur as a pet! To solve the problem of accessing these ancient beasts remotely and getting them to talk to each other, brilliant minds came up with <b>ARPANET</b>, the internet’s super-cool grandparent. It was the first step toward connecting computers from different locations into a magical network.<br>
         </p>
         <div class="img"> <img src="../assets/dino.png" alt="Web Development"> </div>
         `
@@ -48,7 +48,7 @@ const lessons = [
         type: 'lesson',
         title: 'Clients and Servers: A Techy Restaurant Tale',
         content: `
-        <p>In the world of technology, a client is like the hungry customer at a <i style="color:orange;">restaurant</i>, craving delicious data. When you browse the web, your computer (the client) is placing an order for some tasty information from a website.<br> Now, who takes this order? Enter the internet—the speedy waiter who zips over to the kitchen (a.k.a. the server). The server is the chef behind the scenes, cooking up exactly what you ordered—be it a webpage, a video, or some cat memes—and sends it back through the waiter (the internet) to satisfy your digital hunger.
+        <p>In the world of technology, a client is like the hungry customer at a <i style="color:orange;">restaurant</i>, craving delicious data. When you browse the web, your computer (the client) is placing an order for some tasty information from a website.<br> Now, who takes this order? Enter the internet—the speedy waiter who zips over to the kitchen (a.k.a. the <b style="color:#4290f5;">server</b>). The server is the <b style="color:#4290f5;">chef</b> behind the scenes, cooking up exactly what you ordered—be it a webpage, a video, or some cat memes—and sends it back through the <b style="color:#4290f5;">waiter</b> (the internet) to satisfy your digital hunger.
         <br><br>
         Just like in a real restaurant, where the kitchen might be hidden away, the server computer could be located far, far away, but thanks to our trusty waiter, you get exactly what you asked for, served up fresh on your screen!</p>
         <div class="img"> <img src="../assets/resturant.jpg" alt="Web Development"> </div>
@@ -95,7 +95,7 @@ const lessons = [
                 <button class="next-chapt">Chapter 2</button>
             </a>
             </div>
-        <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/goodJob.png" alt="Web Development"> </div>
         `
     }
 ];

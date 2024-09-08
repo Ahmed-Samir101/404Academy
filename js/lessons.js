@@ -542,6 +542,5 @@ var animateButton = function(e) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
 
-
 sortableList.addEventListener("dragover", initSortableList);
 sortableList.addEventListener("dragenter", e => e.preventDefault());

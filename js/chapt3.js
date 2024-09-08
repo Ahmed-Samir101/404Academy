@@ -512,7 +512,7 @@ const lessons = [
                 <button class="next-chapt">Chapter 3</button>
             </a>
             </div>
-        <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/under-construction.jpg" alt="Web Development"> </div>
         `
     }
 ];
