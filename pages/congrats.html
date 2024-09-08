@@ -7,11 +7,11 @@
 <body>
 
 <div class="js-container container" style="top:0px !important;">
-    <a href="../index.html" class="logo">
+    <a href="../learn.html" class="logo">
         <img src="../assets/back.png" alt="Logo">
     </a>
   <div class="congratulations-text">Congratulations</div>
-  <p>Now you ca</p>
+  <!-- <p>Now you ca</p> -->
   <div class="img">
       <img src="../assets/celb.jpg">
   </div>
@@ -23,6 +23,7 @@
     margin: 0;
     padding: 0;
   }
+
   .img {
     display: flex;
     justify-content: center;
@@ -166,6 +167,26 @@
     background-color: #2ca893;
     transition: all 0.2s ease-out;
   }
+
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 2;
+  }
+
+.logo img {
+    width: 20vh; /* Adjust size as needed */
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1);
+}
 </style>
 
 <script>
