@@ -30,6 +30,7 @@ nav {
     padding-top: 2.422vw;
     width: 100%;
     justify-content: center;
+    gap: 20%;
     position: absolute;
 	z-index: 1;
 }
