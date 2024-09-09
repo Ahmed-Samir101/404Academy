@@ -219,12 +219,12 @@ function verifyArrangeOrder() {
     if (correctOrder) {
         showPopupImage(correctImage);
         correctSound.play();
+        incrementEXP(loggedInUser);
         document.getElementById('next').disabled = false;
-
-        incrementEXP(loggedInUser); // Increment EXP
     } else {
         showPopupImage(incorrectImage);
         incorrectSound.play();
+        decrementEXP(loggedInUser);
         document.getElementById('next').disabled = true;
     }
 }
@@ -288,17 +288,15 @@ function verifyCheckboxAnswer() {
         correctAnswers.every(value => selectedValues.includes(value));
 
     if (isCorrect) {
-        console.log("Checkbox answers are correct.");
         showPopupImage(correctImage);
         correctSound.play();
+        incrementEXP(loggedInUser);
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
     } else {
-        console.log("Checkbox answers are incorrect.");
-        console.log(correctAnswers)
-        console.log(selectedValues)
         showPopupImage(incorrectImage);
         incorrectSound.play();
+        decrementEXP(loggedInUser);
         correctAnswerSelected = false;
         document.getElementById('next').disabled = true;
     }
@@ -393,6 +391,11 @@ function verifyAnswer(selectedIndex, correctIndex) {
     const choices = document.querySelectorAll('.choice');
     const loggedInUser = localStorage.getItem('loggedInUser');
 
+    if (correctAnswerSelected) {
+        console.log("This question has already been solved.");
+        return; // Prevents further interaction if the question is already solved
+    }
+
     if (selectedIndex === correctIndex) {
         choices[selectedIndex].style.backgroundColor = '#67d0ba';
         correctSound.play();
@@ -400,31 +403,49 @@ function verifyAnswer(selectedIndex, correctIndex) {
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
 
+        // Disable all choices after correct answer
+        choices.forEach(choice => {
+            choice.style.pointerEvents = 'none';
+        });
+
         incrementEXP(loggedInUser); // Increment EXP only if logged in
     } else {
         choices[selectedIndex].style.backgroundColor = '#ea5d64';
         showPopupImage(incorrectImage);
         incorrectSound.play();
+        decrementEXP(loggedInUser);
         correctAnswerSelected = false;
     }
 }
 
+
 // Function to increment EXP for a logged-in user
 function incrementEXP(loggedInUser) {
     if (loggedInUser) {
-        // Increment EXP only for logged-in users
         let exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
         exp += 1;
         localStorage.setItem(`userExp_${loggedInUser}`, exp);
         
-        displayEXP(exp); // Update the display with the new EXP
+        displayEXP(exp, 100, true); // Pass 'true' for correct answer
+    } else {
+        console.log("User not logged in, XP not saved.");
+    }
+}
+
+function decrementEXP(loggedInUser) {
+    if (loggedInUser) {
+        let exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
+        exp -= 1;
+        localStorage.setItem(`userExp_${loggedInUser}`, exp);
+        
+        displayEXP(exp, 100, false); // Pass 'false' for incorrect answer
     } else {
         console.log("User not logged in, XP not saved.");
     }
 }
 
 
-function displayEXP(exp, maxExp) {
+function displayEXP(exp, maxExp, isCorrect) {
     const expDisplayElement = document.getElementById('expDisplay');
     const expTextElement = expDisplayElement.querySelector('.xp-text');
     const expBarFillElement = expDisplayElement.querySelector('.xp-bar-fill');
@@ -434,16 +455,27 @@ function displayEXP(exp, maxExp) {
         const fillPercentage = (exp / maxExp) * 100;
         expBarFillElement.style.width = `${fillPercentage}%`;
 
+        // Set the color based on whether the answer was correct or not
+        if (isCorrect) {
+            expTextElement.style.color = 'green';
+        } else {
+            expTextElement.style.color = 'red';
+        }
+
         // Animate the scale and opacity
         expDisplayElement.style.transform = 'translateY(-50%) scale(1.2)';
         expDisplayElement.style.opacity = '1';
         setTimeout(() => {
             expDisplayElement.style.transform = 'translateY(-50%) scale(1)';
             expDisplayElement.style.opacity = '0.9';
+
+            // Reset color back to white after 1 second
+            setTimeout(() => {
+                expTextElement.style.color = 'white';
+            }, 1000);
         }, 300);
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     const loggedInUser = localStorage.getItem('loggedInUser');
