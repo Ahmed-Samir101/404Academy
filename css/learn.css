@@ -123,3 +123,45 @@ section {
     40%, 60% { transform: translate(8px, 0) rotate(4deg); }
     100% { transform: translate(0, 0) rotate(0deg); }
 }
+
+/* Full-screen overlay with a semi-transparent background */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of all other elements */
+    pointer-events: auto; /* Allow interactions with the overlay itself */
+}
+
+/* Content box in the overlay */
+.overlay-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    color: white;
+    pointer-events: auto; /* Allow interactions with the modal content */
+}
+
+/* Button styling */
+.overlay-content button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.overlay-content button:hover {
+    background-color: #0056b3;
+}

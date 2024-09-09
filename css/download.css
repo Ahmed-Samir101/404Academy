@@ -18,7 +18,7 @@ body {
 }
 
 /* Logo styling */
-.logo {
+#backBtn {
     position: absolute;
     top: 20px;
     left: 20px;
@@ -27,13 +27,14 @@ body {
     text-decoration: none;
 }
 
-.logo img {
+#backBtn img {
     width: 20vh; /* Adjust size as needed */
     height: auto;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
-.logo:hover img {
+#backBtn:hover img {
     transform: scale(1.1);
 }
 

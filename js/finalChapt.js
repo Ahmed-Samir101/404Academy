@@ -6,10 +6,9 @@ const totalSlides = slides.length;
 const lessons = [
   {
     type: 'lesson',
-    title: 'You made it!',
-    content: `
-        <p>What is <b style="color:blue;">JavaScript</b>? JavaScript is a versatile programming language primarily used for creating dynamic and interactive effects on web pages. It allows you to add logic, manipulate the DOM, and handle events.</p>
-        <div class="img"><img src="../assets/js.png" alt="JavaScript"></div>
+    title: 'You made it🎉!!',
+    content: `<p> After mastering the essentials of HTML, CSS, and JavaScript, you're now ready to bring it all together. This project is your chance to take everything you've learned and turn it into something amazing.</p>
+        <div class="img"><img src="../assets/finalprojectintro.png" alt="intro"></div>
     `
 },
     {

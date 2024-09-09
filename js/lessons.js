@@ -4,6 +4,7 @@ const incorrectImage = document.getElementById('incorrect-image');
 const correctSound = new Audio('../assets/correct.mp3');
 const incorrectSound = new Audio('../assets/bonk.mp3');
 const popSound = new Audio('../assets/pop.mp3');
+const pop2Sound = new Audio('../assets/pop2.mp3');
 
 const imagePaths = [
     "../assets/spongebob-thinking.gif",
@@ -399,7 +400,7 @@ function verifyAnswer(selectedIndex, correctIndex) {
         correctAnswerSelected = true;
         document.getElementById('next').disabled = false;
 
-        incrementEXP(loggedInUser); // Increment EXP
+        incrementEXP(loggedInUser); // Increment EXP only if logged in
     } else {
         choices[selectedIndex].style.backgroundColor = '#ea5d64';
         showPopupImage(incorrectImage);
@@ -410,21 +411,18 @@ function verifyAnswer(selectedIndex, correctIndex) {
 
 // Function to increment EXP for a logged-in user
 function incrementEXP(loggedInUser) {
-    let exp;
     if (loggedInUser) {
-        // For logged-in users
-        exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
+        // Increment EXP only for logged-in users
+        let exp = parseInt(localStorage.getItem(`userExp_${loggedInUser}`)) || 0;
         exp += 1;
         localStorage.setItem(`userExp_${loggedInUser}`, exp);
+        
+        displayEXP(exp); // Update the display with the new EXP
     } else {
-        // For non-logged-in users
-        exp = parseInt(localStorage.getItem('guestExp')) || 0;
-        exp += 1;
-        localStorage.setItem('guestExp', exp);
+        console.log("User not logged in, XP not saved.");
     }
-
-    displayEXP(exp); // Update the display with the new EXP
 }
+
 
 function displayEXP(exp, maxExp) {
     const expDisplayElement = document.getElementById('expDisplay');
@@ -515,6 +513,7 @@ document.getElementById('next').addEventListener('click', () => {
 });
 
 document.getElementById('back').addEventListener('click', () => {
+    pop2Sound.play();
     navigateSlides(-1);
 });
 

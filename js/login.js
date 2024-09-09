@@ -52,23 +52,28 @@ window.onload = () => {
     }
 
     // Function to log in a user
-    function login(name, password) {
-        if (!name || !password) {  // Check for empty inputs
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-        const user = users.find(user => user.name === name && user.password === password);
-    
-        if (user) {
-            alert('Login successful!');
-            localStorage.setItem('loggedInUser', user.name); // Store the logged-in user's name
-            window.location.href = '../index.html'; // Redirect to the home page
-        } else {
-            alert('Invalid name or password.');
-        }
+// Function to log in a user
+function login(name, password) {
+    if (!name || !password) {
+        alert('Please fill in all fields.');
+        return;
     }
+
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.name === name && user.password === password);
+    
+    if (user) {
+        localStorage.setItem('loggedInUser', user.name);
+        setTimeout(() => {
+            window.location.href = 'learn.html';  // Redirect after a short delay
+        }, 100);
+    }
+     else {
+        alert('Invalid name or password.');
+    }
+}
+
+
 
     // Event listener for the sign-up button
     document.querySelector('.signup .submit-btn').addEventListener('click', function() {

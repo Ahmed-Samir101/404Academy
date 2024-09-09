@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/download.css">
     <title>Download Page</title>
 </head>
+
 <body>
 
     <!-- Logo linking to homepage -->
-    <a href="../index.html" class="logo">
+    <div id="backBtn">
         <img src="../assets/back.png" alt="Logo">
-    </a>
+    </div>
 
     <div class="container">
         <h1>Download Your Files</h1>
@@ -35,5 +37,17 @@
 
         <p id="status"></p>
     </div>
+
+    <script>
+        document.getElementById('backBtn').addEventListener('click', function () {
+            if (window.history.length > 1) {
+                window.history.back();
+            } else {
+                window.location.href = 'defaultPage.html';  // Replace with your default page
+            }
+        });
+
+    </script>
 </body>
+
 </html>
