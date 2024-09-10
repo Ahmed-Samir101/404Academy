@@ -275,7 +275,7 @@ const lessons = [
                 <button class="next-chapt">Web project</button>
             </a>
             </div>
-        <div class="img"> <img class="shake-image" src="../assets/goodJob1.png" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/goodjob.png" alt="Web Development"> </div>
         `
     }
 ];
