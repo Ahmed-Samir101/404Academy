@@ -598,5 +598,46 @@ var animateButton = function(e) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
 
+
+// Function to load the user's level from local storage
+function getUserLevel() {
+    let level = localStorage.getItem('userLevel');
+    if (level === null) {
+        level = 1; // Default level is 1
+        localStorage.setItem('userLevel', level);
+    }
+    return parseInt(level);
+}
+
+// Function to increment the user's level
+function incrementLevel() {
+    let currentLevel = getUserLevel();
+    currentLevel += 1; // Increment the level by 1
+    localStorage.setItem('userLevel', currentLevel); // Save new level to localStorage
+    updateLevelDisplay(currentLevel); // Update the display on the page
+}
+
+// Function to update the level on the user interface
+function updateLevelDisplay(level) {
+    const levelElement = document.getElementById('levelDisplay');
+    if (levelElement) {
+        levelElement.textContent = `Level: ${level}`;
+    }
+}
+
+// Event listener for the button click
+document.getElementById('incrementLevelBtn').addEventListener('click', () => {
+    incrementLevel(); // Increment and save the new level when the button is clicked
+    console.log("incremented")
+});
+
+// On page load, show the current level
+document.addEventListener('DOMContentLoaded', () => {
+    updateLevelDisplay(getUserLevel());
+    console.log("updated")
+});
+
+
 sortableList.addEventListener("dragover", initSortableList);
 sortableList.addEventListener("dragenter", e => e.preventDefault());
+
