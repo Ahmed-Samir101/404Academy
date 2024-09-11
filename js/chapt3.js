@@ -509,7 +509,7 @@ const lessons = [
         <p>Now, let's dive into the next chapter, where we'll explore JavaScript. You'll learn the basics of <br style="color: yellow;">JS</b> and how to make your website more interactive. <br> Excited? I know I am! Let's get started! 🚀</p>
             <div class="next-chapt">
             <a href="chapt4.html">
-                <button class="next-chapt">Chapter 4</button>
+                <button id="incrementLevelBtn" class="next-chapt">Chapter 4</button>
             </a>
             </div>
         <div class="img"> <img class="shake-image" src="../assets/goodidea.png" alt="Web Development"> </div>
