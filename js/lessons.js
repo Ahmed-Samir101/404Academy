@@ -3,6 +3,8 @@ const correctImage = document.getElementById('correct-image');
 const incorrectImage = document.getElementById('incorrect-image');
 const correctSound = new Audio('../assets/correct.mp3');
 const incorrectSound = new Audio('../assets/bonk.mp3');
+const loggedInUser = localStorage.getItem('loggedInUser');
+
 const popSound = new Audio('../assets/pop.mp3');
 const pop2Sound = new Audio('../assets/pop2.mp3');
 
@@ -205,7 +207,6 @@ function loadContent() {
 function verifyArrangeOrder() {
     const items = document.querySelectorAll('.sortable-list .item');
     let correctOrder = true;
-    const loggedInUser = localStorage.getItem('loggedInUser');
 
     items.forEach((item, index) => {
         const expectedName = lessons[currentIndex].correctOrder[index];

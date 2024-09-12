@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="./css/navbar.css" />
     <title>404 Academy</title>
 </head>
+
 <body>
     <div class="background-container">
         <!-- Navigation Bar -->
@@ -29,7 +31,7 @@
                     <a href="./pages/about.html">
                         <img src="./assets/nav4.png" alt="Image 4">
                     </a>
-                </div>                
+                </div>
                 <div class="login-btn">
                     <a href="./pages/login.html">
                         <img id="loginImage" src="./assets/log-in.png" alt="Log In">
@@ -48,7 +50,7 @@
             <a href="./pages/learn.html">
                 <img src="./assets/play-now.png">
             </a>
-            </div>
+        </div>
 
         <div class="content">
             <!-- Image Group as Content -->
@@ -62,25 +64,28 @@
     </div>
 
     <script>
-         // Script to update the login button with the logged-in user's name
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const loggedInUser = localStorage.getItem('loggedInUser');
             if (loggedInUser) {
+                const userObject = JSON.parse(loggedInUser);
                 // Hide the image and display the user's name and log out button
                 document.getElementById('loginImage').style.display = 'none';
                 const userNameElement = document.getElementById('userName');
-                userNameElement.textContent = `Welcome, ${loggedInUser}!`;
+                userNameElement.textContent = `Welcome, ${userObject.name}!`;
+                console.log(userObject.name); // Log just the user's name
                 userNameElement.style.display = 'block';
                 document.getElementById('logoutBtn').style.display = 'block';
             }
 
             // Log out functionality
-            document.getElementById('logoutBtn').addEventListener('click', function() {
-                localStorage.removeItem('loggedInUser'); // Clear the logged-in user from local storage
-                window.location.href = 'index.html'; // Redirect to the login page
+            document.getElementById('logoutBtn').addEventListener('click', function () {
+                localStorage.removeItem('loggedInUser');
+                window.location.href = 'index.html';
             });
         });
+
     </script>
 
 </body>
+
 </html>
