@@ -31,7 +31,7 @@ window.onload = () => {
 
     // Function to register a new user
     function register(name, password) {
-        if (!name || !password) {  // Check for empty inputs
+        if (!name || !password) {
             alert('Please fill in all fields.');
             return;
         }
@@ -43,7 +43,9 @@ window.onload = () => {
             loginBtn.click();
             return;
         }
-        users.push({ name, password, exp: 0 }); // Add exp with a default value of 0
+
+        // Add user with default EXP and level
+        users.push({ name, password, exp: 0, level: 1 });
         localStorage.setItem('users', JSON.stringify(users));
         alert('Registration successful! Please log in.');
 
@@ -52,56 +54,59 @@ window.onload = () => {
     }
 
     // Function to log in a user
-// Function to log in a user
-function login(name, password) {
-    if (!name || !password) {
-        alert('Please fill in all fields.');
-        return;
+    function login(name, password) {
+        if (!name || !password) {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        const users = JSON.parse(localStorage.getItem('users')) || [];
+        const user = users.find(user => user.name === name && user.password === password);
+        
+        if (user) {
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            setTimeout(() => {
+                window.location.href = 'learn.html';
+            }, 100);
+        } else {
+            alert('Invalid name or password.');
+        }
     }
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.name === name && user.password === password);
-    
-    if (user) {
-        localStorage.setItem('loggedInUser', user.name);
-        setTimeout(() => {
-            window.location.href = 'learn.html';  // Redirect after a short delay
-        }, 100);
+    // Function to get the logged-in user
+    function getLoggedInUser() {
+        return JSON.parse(localStorage.getItem('loggedInUser'));
     }
-     else {
-        alert('Invalid name or password.');
+
+    // Function to increment the user's level
+    function incrementLevel() {
+        const user = getLoggedInUser();
+        if (user) {
+            user.level += 1; // Increment the user's level
+            localStorage.setItem('loggedInUser', JSON.stringify(user));
+            updateUsersList(user);
+            alert(`Level up! You are now level ${user.level}.`);
+        }
     }
-}
 
-
+    // Function to update the user's level in the main user list
+    function updateUsersList(updatedUser) {
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+        users = users.map(user => user.name === updatedUser.name ? updatedUser : user);
+        localStorage.setItem('users', JSON.stringify(users));
+    }
 
     // Event listener for the sign-up button
     document.querySelector('.signup .submit-btn').addEventListener('click', function() {
         const name = document.querySelector('.signup .input[type="text"]').value;
         const password = document.querySelector('.signup .input[type="password"]').value;
-
         register(name, password);
     });
 
-    // Event listener for the login button
+    
     document.querySelector('.login .submit-btn').addEventListener('click', function() {
         const name = document.querySelector('.login .input[type="text"]').value;
         const password = document.querySelector('.login .input[type="password"]').value;
-
         login(name, password);
     });
-
-    // Event listener for Enter key press on inputs
-//     document.querySelectorAll('.input[type="text"], .input[type="password"]').forEach(input => {
-//         input.addEventListener('keydown', (e) => {
-//             if (e.key === 'Enter') {
-//                 if (input.closest('.signup')) {
-//                     signupBtn.click();
-//                 } else if (input.closest('.login')) {
-//                     loginBtn.click();
-//                 }
-//             }
-//         });
-//     });
-
 }

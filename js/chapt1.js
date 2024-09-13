@@ -92,7 +92,7 @@ const lessons = [
         <p>Now, let's dive into the next chapter, where we'll explore CSS. You'll discover how to style and customize your website, making it truly your own. Excited? I know I am! Let's get started! 🚀</p>
             <div class="next-chapt">
             <a href="chapt2.html">
-                <button class="next-chapt">Chapter 2</button>
+                <button id="incrementLevelBtn" class="next-chapt">Chapter 2</button>
             </a>
             </div>
         <div class="img"> <img class="shake-image" src="../assets/goodJob.png" alt="Web Development"> </div>

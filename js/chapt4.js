@@ -1,5 +1,5 @@
 
-let currentIndex = 0;
+let currentIndex = 16;
 
 const slides = document.querySelectorAll('.slide');
 const totalSlides = slides.length;
@@ -238,7 +238,7 @@ const lessons = [
         `
     },
     {
-        type: 'question-with-code',
+        type: 'question',
         question: '10) What does this code do?',
         content: `
         <div class="code">
@@ -246,7 +246,6 @@ const lessons = [
             <span class="function">document</span><span class="property">.getElementById</span><span class="brackets">(</span><span class="string">'title'</span><span class="brackets">)</span><span class="property">.style</span><span class="property">.color</span> <span class="operator">=</span> <span class="string">'red'</span><span class="punctuation">;</span>
         </p>
     </div>
-    
         `,
         choices: ['Changes the text of the title', 'Changes the background color of the title', 'Changes the font size of the title', 'Changes the text color of the title'],
         correctAnswer: 3
@@ -262,7 +261,7 @@ const lessons = [
                 <button class="next-chapt">Web project</button>
             </a>
             </div>
-        <div class="img"> <img class="shake-image" src="../assets/goodjob.png" alt="Web Development"> </div>
+        <div class="img"> <img class="shake-image" src="../assets/goodJob2.png" alt="Web Development"> </div>
         `
     }
 ];
