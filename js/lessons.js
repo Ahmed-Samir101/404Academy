@@ -183,7 +183,7 @@ function loadContent() {
 
         document.getElementById('next').disabled = true; // Disable "Next" button initially
 
-        setupSortableList();
+        // setupSortableList();
         document.getElementById('verifyArrangeButton').addEventListener('click', function() {
             verifyArrangeOrder();
         });
@@ -204,76 +204,79 @@ function loadContent() {
 }
 
 function verifyArrangeOrder() {
-    const items = document.querySelectorAll('.sortable-list .item');
+    const items = document.querySelectorAll('.draggable-item'); // Select the draggable items
     let correctOrder = true;
-    const loggedInUser = localStorage.getItem('loggedInUser');
+    const loggedInUser = localStorage.getItem('loggedInUser'); // Get the logged-in user info from localStorage
 
+    // Loop through each item and compare the text content with the correct order
     items.forEach((item, index) => {
         const expectedName = lessons[currentIndex].correctOrder[index];
-        const actualName = item.querySelector('.details span').textContent;
+        const actualName = item.textContent.trim(); // Get the actual content of the draggable item
 
         if (expectedName !== actualName) {
-            correctOrder = false;
+            correctOrder = false; // Mark the order as incorrect if it doesn't match
         }
     });
 
+    // Provide feedback based on whether the order is correct or not
     if (correctOrder) {
-        showPopupImage(correctImage);
-        correctSound.play();
-        incrementEXP(loggedInUser);
-        document.getElementById('next').disabled = false;
+        showPopupImage(correctImage); // Show correct image
+        correctSound.play(); // Play correct sound
+        incrementEXP(loggedInUser); // Increment the user's experience points (XP)
+        document.getElementById('next').disabled = false; // Enable the "Next" button
     } else {
-        showPopupImage(incorrectImage);
-        incorrectSound.play();
-        decrementEXP(loggedInUser);
-        document.getElementById('next').disabled = true;
+        showPopupImage(incorrectImage); // Show incorrect image
+        incorrectSound.play(); // Play incorrect sound
+        decrementEXP(loggedInUser); // Decrease the user's XP
+        document.getElementById('next').disabled = true; // Keep the "Next" button disabled
     }
 }
 
-function setupSortableList() {
-    const sortableList = document.querySelector('.sortable-list');
-    const items = sortableList.querySelectorAll('.item');
 
-    items.forEach(item => {
-        item.addEventListener('dragstart', dragStart);
-        item.addEventListener('dragover', dragOver);
-        item.addEventListener('drop', drop);
-        item.addEventListener('dragend', dragEnd);
-    });
+// function setupSortableList() {
+//     const sortableList = document.querySelector('.sortable-list');
+//     const items = sortableList.querySelectorAll('.item');
 
-    let draggedItem = null;
+//     items.forEach(item => {
+//         item.addEventListener('dragstart', dragStart);
+//         item.addEventListener('dragover', dragOver);
+//         item.addEventListener('drop', drop);
+//         item.addEventListener('dragend', dragEnd);
+//     });
 
-    function dragStart(e) {
-        draggedItem = this;
-        setTimeout(() => {
-            this.classList.add('hidden');
-        }, 0);
-    }
+//     let draggedItem = null;
 
-    function dragOver(e) {
-        e.preventDefault();
-    }
+//     function dragStart(e) {
+//         draggedItem = this;
+//         setTimeout(() => {
+//             this.classList.add('hidden');
+//         }, 0);
+//     }
 
-    function drop(e) {
-        e.preventDefault();
-        if (this !== draggedItem) {
-            let allItems = [...sortableList.querySelectorAll('.item')];
-            let currentPos = allItems.indexOf(draggedItem);
-            let newPos = allItems.indexOf(this);
+//     function dragOver(e) {
+//         e.preventDefault();
+//     }
 
-            if (currentPos < newPos) {
-                this.after(draggedItem);
-            } else {
-                this.before(draggedItem);
-            }
-        }
-    }
+//     function drop(e) {
+//         e.preventDefault();
+//         if (this !== draggedItem) {
+//             let allItems = [...sortableList.querySelectorAll('.item')];
+//             let currentPos = allItems.indexOf(draggedItem);
+//             let newPos = allItems.indexOf(this);
 
-    function dragEnd(e) {
-        this.classList.remove('hidden');
-        draggedItem = null;
-    }
-}
+//             if (currentPos < newPos) {
+//                 this.after(draggedItem);
+//             } else {
+//                 this.before(draggedItem);
+//             }
+//         }
+//     }
+
+//     function dragEnd(e) {
+//         this.classList.remove('hidden');
+//         draggedItem = null;
+//     }
+// }
 
 function verifyCheckboxAnswer() {
     const checkboxes = document.querySelectorAll('#checkbox-question input[type="checkbox"]');
@@ -544,59 +547,114 @@ loadContent();
 document.getElementById('next').addEventListener('click', () => {
     popSound.play();
     navigateSlides(1);
+    call()
 });
 
 document.getElementById('back').addEventListener('click', () => {
     pop2Sound.play();
     navigateSlides(-1);
+    call()
 });
 
 loadContent();
 
-const sortableList = document.querySelector(".sortable-list");
-const items = document.querySelectorAll(".item");
+// let isDragging = false;
+// let currentItem = null;
+// let containerOffsetY = 0;
+// let initY = 0;
 
-items.forEach(item => {
-    item.addEventListener("dragstart", () => {
-        // Adding dragging class to item after a delay
-        setTimeout(() => item.classList.add("dragging"), 0);
-    });
-    // Removing dragging class from item on dragend event
-    item.addEventListener("dragend", () => item.classList.remove("dragging"));
-});
+// const container = document.querySelector(".sortable-list"); // Reference to the correct container
 
-const initSortableList = (e) => {
-    e.preventDefault();
-    const draggingItem = document.querySelector(".dragging");
-    // Getting all items except currently dragging and making array of them
-    let siblings = [...sortableList.querySelectorAll(".item:not(.dragging)")];
+// document.addEventListener("mousedown", (e) => {
+//   const item = e.target.closest(".item");
+//   if (item) {
+//     isDragging = true;
+//     currentItem = item;
+//     containerOffsetY = currentItem.offsetTop;
+//     currentItem.classList.add("dragging");
+//     document.body.style.userSelect = "none";
+//     initY = e.clientY;
+//   }
+// });
 
-    // Finding the sibling after which the dragging item should be placed
-    let nextSibling = siblings.find(sibling => {
-        return e.clientY <= sibling.offsetTop + sibling.offsetHeight / 2;
-    });
+// document.addEventListener("mousemove", (e) => {
+//   if (isDragging && currentItem) {
+//     let newTop = containerOffsetY + (e.clientY - initY);
+//     currentItem.style.top = `${newTop}px`;
 
-    // Inserting the dragging item before the found sibling
-    sortableList.insertBefore(draggingItem, nextSibling);
+//     let itemSiblings = [...document.querySelectorAll(".item:not(.dragging)")];
+//     let nextItem = itemSiblings.find((sibling) => {
+//       return (
+//         e.clientY - container.getBoundingClientRect().top <=
+//         sibling.offsetTop + sibling.offsetHeight / 2
+//       );
+//     });
+
+//     if (nextItem) {
+//       container.insertBefore(currentItem, nextItem);
+//     } else if (e.clientY > container.getBoundingClientRect().bottom) {
+//       container.appendChild(currentItem);
+//     }
+//   }
+// });
+
+// document.addEventListener("mouseup", () => {
+//   if (currentItem) {
+//     currentItem.classList.remove("dragging");
+//     currentItem.style.top = "0"; // Reset top after drop
+//     currentItem = null;
+//     isDragging = false;
+//     document.body.style.userSelect = "auto";
+//   }
+// });
+
+// // Touch event handlers for mobile
+// document.addEventListener("touchstart", (e) => {
+//   const item = e.target.closest(".item");
+//   if (item) {
+//     isDragging = true;
+//     currentItem = item;
+//     containerOffsetY = currentItem.offsetTop;
+//     currentItem.classList.add("dragging");
+//     initY = e.touches[0].clientY;
+//   }
+// });
+
+// document.addEventListener("touchmove", (e) => {
+//   if (isDragging && currentItem) {
+//     let touchY = e.touches[0].clientY;
+//     let newTop = containerOffsetY + (touchY - initY);
+//     currentItem.style.top = `${newTop}px`;
+
+//     let itemSiblings = [...document.querySelectorAll(".item:not(.dragging)")];
+//     let nextItem = itemSiblings.find((sibling) => {
+//       return (
+//         touchY - container.getBoundingClientRect().top <=
+//         sibling.offsetTop + sibling.offsetHeight / 2
+//       );
+//     });
+
+//     if (nextItem) {
+//       container.insertBefore(currentItem, nextItem);
+//     } else if (touchY > container.getBoundingClientRect().bottom) {
+//       container.appendChild(currentItem);
+//     }
+//   }
+// });
+
+// document.addEventListener("touchend", () => {
+//   if (currentItem) {
+//     currentItem.classList.remove("dragging");
+//     currentItem.style.top = "0"; // Reset top after drop
+//     currentItem = null;
+//     isDragging = false;
+//   }
+// });
+
+const call = () => {
+        var el = document.getElementById('draggable-list');
+        var sortable = Sortable.create(el, {
+            animation: 150,
+            ghostClass: 'blue-background-class',
+        });
 }
-
-var animateButton = function(e) {
-
-    e.preventDefault;
-    //reset animation
-    e.target.classList.remove('animate');
-    
-    e.target.classList.add('animate');
-    setTimeout(function(){
-      e.target.classList.remove('animate');
-    },700);
-  }
-  
-  var bubblyButtons = document.getElementsByClassName("next");
-  console.log(bubblyButtons)
-  for (var i = 0; i < bubblyButtons.length; i++) {
-    bubblyButtons[i].addEventListener('click', animateButton, false);
-  }
-
-sortableList.addEventListener("dragover", initSortableList);
-sortableList.addEventListener("dragenter", e => e.preventDefault());

@@ -165,3 +165,33 @@ section {
 .overlay-content button:hover {
     background-color: #0056b3;
 }
+
+@media (max-width: 768px) {
+    /* Keep nav-items in a row and prevent them from crossing the screen width */
+    .nav-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Center align */
+        flex-wrap: nowrap; /* Prevent items from wrapping onto a new line */
+        overflow: hidden; /* Prevent overflow */
+    }
+
+    /* Limit the size of each navigation item */
+    .nav-items a {
+        flex: 1 1 auto; /* Allow flexibility but prevent excessive stretching */
+        margin: 0 5px; /* Add a small space between each item */
+    }
+
+    /* Adjust image sizes for mobile */
+    .nav-items img {
+        height: 30px; /* Smaller height for mobile */
+        width: auto;  /* Keep the aspect ratio */
+    }
+
+    /* Adjust container */
+    .con {
+        display: flex;
+        justify-content: center;
+        width: 100%; /* Ensure it doesn’t overflow */
+    }
+}

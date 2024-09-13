@@ -96,26 +96,13 @@ const lessons = [
         type: 'arrange',
         question: '5) Arrange the steps to declare a variable in JavaScript.',
         content: `
-        <ul class="sortable-list">
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>console.log(name)</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>name = "Conan"</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>let name</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        </ul>
+        <div class="container">
+            <ul id="draggable-list">
+                <li class="draggable-item">console.log(name)</li>
+                <li class="draggable-item">name = "Conan"</li>
+                <li class="draggable-item">let name</li>
+            </ul>
+        </div>
         `,
         correctOrder: [
             'let name',

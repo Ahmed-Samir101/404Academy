@@ -15,44 +15,16 @@ const lessons = [
         type: 'arrange',
         question: '1) Arrange the following HTML elements to create a basic webpage structure:',
         content: `
-            <ul class="sortable-list">
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;/html&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;html&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;head&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;/head&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;body&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;/body&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-            </ul>
+        <div class="container">
+        <ul id="draggable-list">
+            <li class="draggable-item">&lt;/html&gt;</li>
+            <li class="draggable-item">&lt;head&gt;</li>
+            <li class="draggable-item">&lt;/head&gt;</li>
+            <li class="draggable-item">&lt;body&gt;</li>
+            <li class="draggable-item">&lt;/body&gt;</li>
+            <li class="draggable-item">&lt;html&gt;</li>
+        </ul>
+        </div>
         `,
         correctOrder: [
             '<html>',
@@ -102,44 +74,16 @@ const lessons = [
         type: 'arrange',
         question: '3) Arrange the following HTML elements to create the webpage you see',
         content: `
-            <ul class="sortable-list">
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;div class="container"&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;/div&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;p id="bio"&gt;Text goes here&lt;/p&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;button onclick="changeBio()"&gt;Change Bio&lt;/button&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&lt;h1 id="name"&gt;Your Name&lt;/h1&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
-                <li class="item" draggable="true">
-                    <div class="details">
-                        <span>&ltimg id="profile-pic" src="your-image-path.jpg" alt="Profile Picture"&gt;</span>
-                    </div>
-                    <i class="uil uil-draggabledots"></i>
-                </li>
+        <div class="container">
+            <ul id="draggable-list">
+                <li class="draggable-item">&lt;div class="container"&gt;</li>
+                <li class="draggable-item">&lt;/div&gt;</li>
+                <li class="draggable-item">&lt;p id="bio"&gt;Text goes here&lt;/p&gt;</li>
+                <li class="draggable-item">&lt;button onclick="changeBio()"&gt;Change Bio&lt;/button&gt;</li>
+                <li class="draggable-item">&lt;h1 id="name"&gt;Your Name&lt;/h1&gt;</li>
+                <li class="draggable-item">&ltimg id="profile-pic" src="your-image-path.jpg" alt="Profile Picture"&gt;</li>
             </ul>
+        </div>
             <img src="../assets/page4.png">
         `,
         correctOrder: [

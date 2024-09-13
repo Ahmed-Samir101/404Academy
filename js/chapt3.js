@@ -115,38 +115,15 @@ const lessons = [
         type: 'arrange',
         question: '3) Rearrange the tags into the correct order!',
         content: `
-        <ul class="sortable-list">
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;/style&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>p {</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>}</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>color: red;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;style&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-      </ul>
+        <div class="container">
+          <ul id="draggable-list">
+            <li class="draggable-item">&lt;/style&gt;</li>
+            <li class="draggable-item">p {</li>
+            <li class="draggable-item">}</li>
+            <li class="draggable-item">color: red;</li>
+            <li class="draggable-item">&lt;style&gt;</li>
+          </ul>
+        </div>
         `,
         correctOrder: [
             '<style>',
@@ -160,56 +137,18 @@ const lessons = [
         type: 'arrange',
         question: '4) Rearrange the tags into the correct order!',
         content: `
-        <ul class="sortable-list">
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;body&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;/html&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;/head&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;html&gt</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;/body&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;h1&gth1&lt;/h1&gt</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;head&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-        <li class="item" draggable="true">
-          <div class="details">
-            <span>&lt;link rel="stylesheet" href="style.css"&gt;</span>
-          </div>
-          <i class="uil uil-draggabledots"></i>
-        </li>
-      </ul>
+        <div class="container">
+          <ul id="draggable-list">
+            <li class="draggable-item">&lt;body&gt;</li>
+            <li class="draggable-item">&lt;/html&gt;</li>
+            <li class="draggable-item">&lt;/head&gt;</li>
+            <li class="draggable-item">&lt;html&gt</li>
+            <li class="draggable-item">&lt;/body&gt;</li>
+            <li class="draggable-item">&lt;h1&gth1&lt;/h1&gt</li>
+            <li class="draggable-item">&lt;head&gt;</li>
+            <li class="draggable-item">&lt;link rel="stylesheet" href="style.css"&gt;</li>
+          </ul>
+        </div>
         `,
         correctOrder: [
             '<html>',
@@ -480,27 +419,6 @@ const lessons = [
       choices: ['font-style: bold;', 'text-decoration: italic;', 'font-weight: italic;', 'font-style: italic;'],
       correctAnswer: 3
     },
-    // {
-    //     type: 'lesson',
-    //     title: 'Coming soon...',
-    //     content: `
-    //     <p>Stay tuned for more content and <b>Interactive quizzes</b>!</p>
-    //     <div class="img"> <img src="../assets/under-construction.jpg" alt="Web Development"> </div>
-    //     `
-    // }, 
-    // {
-    //     type: 'connect-the-dots',
-    //     question: `Match selectors to their values 
-    //     <div class="img"> <img src="../assets/match_chapter3.png" alt="match chapter 3 question"> </div>`,
-    //     pairs: [
-    //         { left: '.p {}', right: 'color: red' },
-    //         { left: '.example-class {}', right: 'color: green; font-weight: bold;' },
-    //         { left: '#example-id {}', right: 'border: 2px solid black; font-weight: bold;' },
-    //         { left: 'a[title="attribute selector"] {}', right: 'text-align: center' },
-    //         { left: 'div.example-class {}', right: 'font-size: larger; text-decoration: none' }
-    //     ],
-    //     correctPairs: [3, 1, 0, 4, 2]
-    // },
     {
         type: 'lesson',
         title: '',

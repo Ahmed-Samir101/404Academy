@@ -30,7 +30,7 @@ nav {
     padding-top: 2.422vw;
     width: 100%;
     justify-content: center;
-    gap: 20%;
+    /* gap: 20%; */
     position: absolute;
 	z-index: 1;
 }
@@ -818,10 +818,6 @@ article#blogspot-content #puzzle {
 		padding: 0;
 		zoom: 1.5;
 		margin-left: 1.8vw;
-	}
-
-	nav img {
-		zoom: 3;
 	}
 
 	p.date {
