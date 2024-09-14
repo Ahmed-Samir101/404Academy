@@ -15,7 +15,7 @@ const lessons = [
         type: 'arrange',
         question: '1) Arrange the following HTML elements to create a basic webpage structure:',
         content: `
-        <div class="container">
+        <div class="list-container">
         <ul id="draggable-list">
             <li class="draggable-item">&lt;/html&gt;</li>
             <li class="draggable-item">&lt;head&gt;</li>
