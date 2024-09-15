@@ -7,7 +7,6 @@ const loggedInUser = localStorage.getItem('loggedInUser');
 
 const popSound = new Audio('../assets/pop.mp3');
 const pop2Sound = new Audio('../assets/pop2.mp3');
-const loggedInUser = localStorage.getItem('loggedInUser');
 
 const imagePaths = [
     "../assets/spongebob-thinking.gif",
@@ -208,10 +207,6 @@ function loadContent() {
 function verifyArrangeOrder() {
     const items = document.querySelectorAll('.draggable-item'); // Select the draggable items
     let correctOrder = true;
-<<<<<<< HEAD
-=======
-    const loggedInUser = localStorage.getItem('loggedInUser'); // Get the logged-in user info from localStorage
->>>>>>> 6e156a8fa6cff7c53aa533eaf60ed675b1488d6a
 
     // Loop through each item and compare the text content with the correct order
     items.forEach((item, index) => {
