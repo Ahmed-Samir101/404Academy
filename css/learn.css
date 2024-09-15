@@ -5,6 +5,10 @@ body {
     background-color: #f4f4f4;
 }
 
+.info {
+    width: 100%;
+}
+
 .container {
     display: flex;
     justify-content: center;
